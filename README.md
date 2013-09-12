@@ -3,8 +3,12 @@ LeetCode solutions
 ### [LeetCode Online Judgement][onlineJudgement] solutions in Java
 LeetCode online judgement is considered as an effective way of preparing technically coding interviews in general. Some of solutions have been inspired/regarding others' contributions on web.
 
+Check the `src` folder for source code details.
+
+[IntelliJ IDEA][intellijLink] is used when creating, implementing and polishing this project.
+
 ### Issues
-In case of issues or bugs, please reach out to [me][email] without any hesitation.
+In case of issues or bugs, please [reach out][email] without any hesitation.
 
 ### about me
 Find out more about me in person via [my blog][blogLink].
@@ -12,3 +16,4 @@ Find out more about me in person via [my blog][blogLink].
 [onlineJudgement]: http://leetcode.com/onlinejudge
 [email]: mailto:dev.yongwen@gmail.com
 [blogLink]: http://blog.heropotato.com/
+[intellijLink]: http://www.jetbrains.com/idea/
