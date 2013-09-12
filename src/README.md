@@ -20,7 +20,7 @@ Table for two
     <th>ID</th><th>Name</th><th>Tags</th>
   </tr>
   <tr>
-    <td>1</td><td>[twoSum][twosum]</td><td>/`Array/`, `Iteration`, `O(N)`</td>
+    <td>1</td><td> [twoSum][twosum] </td><td> `Array`, `Iteration`, `O(N)` </td>
   </tr>
   <tr>
     <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
