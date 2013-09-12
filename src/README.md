@@ -18,7 +18,7 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
     <th>ID</th><th>Name</th><th>Tags</th>
   </tr>
   <tr>
-    <td>1</td><td> [twoSum][twosum] </td><td><code>Array</code>, <code>Iteration</code>, <code>O(n)</code></td>
+    <td>1</td><td> <a href="http://leetcode.com/onlinejudge#question_1">twoSum</a> </td><td><code>Array</code>, <code>Iteration</code>, <code>O(n)</code></td>
   </tr>
   <tr>
     <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
