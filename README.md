@@ -5,7 +5,7 @@ LeetCode online judgement is considered as an effective way of preparing technic
 
 Check the `src` folder for source code details.
 
-[IntelliJ IDEA][intellijLink] is used when creating, implementing and polishing this project.
+[IntelliJ IDEA][intellijLink] is used for creating, implementing and polishing this project.
 
 ### Issues
 In case of issues or bugs, please [reach out][email] without any hesitation.
