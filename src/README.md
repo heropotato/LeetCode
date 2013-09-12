@@ -9,11 +9,9 @@ Two essential java objects have been pre-defined: `ListNode` and `TreeNode`.
 ### Naming references
 Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judgement][onlineJudgement].
 
-### The questions list
-*
+###Questions table
 
-Table for two
--------------
+[twoSum][twosum]
 
 <table>
   <tr>
