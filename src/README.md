@@ -17,10 +17,10 @@ Table for two
 
 <table>
   <tr>
-    <th>ID</th><th>Name</th><th>Link</th>
+    <th>ID</th><th>Name</th><th>Tags</th>
   </tr>
   <tr>
-    <td>1</td><td>twoSum</td><td>[http://leetcode.com/onlinejudge#question_1][twosum]</td>
+    <td>1</td><td>[twoSum][twosum]</td><td>`Array`, `Iteration`, `O(N)`</td>
   </tr>
   <tr>
     <td>2</td><td>Albert Einstein</td><td>Nearly as awesome</td>
