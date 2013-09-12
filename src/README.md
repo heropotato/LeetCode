@@ -1,13 +1,13 @@
-LeetCode solutions
+Solution details
 ------------------
-### [LeetCode Online Judgement][onlineJudgement] solutions in Java
-LeetCode online judgement is considered as an effective way of preparing technically coding interviews in general. Some of solutions have been inspired/regarding others' contributions on web.
+### Essential objects
+Two essential java objects have been pre-defined: `ListNode` and `TreeNode`.
 
-### Issues
-In case of issues or bugs, please reach out to [me][email] without any hesitation.
+* `ListNode`: defined for singly linked list usage.
+* `TreeNode`: defined for binary tree usage.
 
-### about me
-Find out more about me in person via [my blog][blogLink].
+### Naming references
+Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judgement][onlineJudgement].
 
 [onlineJudgement]: http://leetcode.com/onlinejudge
 [email]: mailto:dev.yongwen@gmail.com
