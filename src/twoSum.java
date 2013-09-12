@@ -44,7 +44,6 @@ public class twoSum {
                     result[0] = temp + 1;
                     result[1] = i + 1;
                 }
-
                 break;
             }
 
