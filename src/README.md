@@ -16,7 +16,7 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
     <th>ID</th><th>Name</th><th>Link</th><th>Tags</th>
   </tr>
   <tr>
-    <td>1</td><td><a href="/ListNode.java">twoSum</a></td><td><a href="http://leetcode.com/onlinejudge#question_1">link</a></td><td><code>Array</code>, <code>Iteration</code>, <code>O(n)</code></td>
+    <td>1</td><td><a href="/src/ListNode.java">twoSum</a></td><td><a href="http://leetcode.com/onlinejudge#question_1">@LeetCode</a></td><td><code>Array</code>, <code>Iteration</code>, <code>O(n)</code></td>
   </tr>
 </table>
 
