@@ -1,7 +1,7 @@
 Solution details
 ------------------
-### Essential objects
-Two essential java objects have been pre-defined: `ListNode` and `TreeNode`.
+### Essential classes
+Two essential java classes have been pre-defined(`ListNode` and `TreeNode`):
 
 * `ListNode`: defined for singly linked list usage.
 * `TreeNode`: defined for binary tree usage.
@@ -9,7 +9,7 @@ Two essential java objects have been pre-defined: `ListNode` and `TreeNode`.
 ### Naming references
 Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judgement][onlineJudgement].
 
-###Questions table
+### Question table
 
 <table>
   <tr>
@@ -41,3 +41,4 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
   </tr>
 </table>
 
+[onlineJudgement]: http://leetcode.com/onlinejudge
