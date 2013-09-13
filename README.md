@@ -3,7 +3,7 @@ LeetCode solutions
 ### [LeetCode Online Judgement][onlineJudgement] solutions in Java
 LeetCode online judgement is considered as an effective way of preparing technically coding interviews in general. Some of solutions have been inspired/regarding others' contributions on web.
 
-Check the `[src][srcLink]` folder for source code details.
+Check the `src` folder for source code details.
 
 [IntelliJ IDEA][intellijLink] is used for creating, implementing and polishing this project.
 
