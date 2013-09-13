@@ -26,9 +26,7 @@ public class addTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // Start typing your Java solution below
         // DO NOT write main() function
-
         return parseLinkedList(parseNumber(l1) + parseNumber(l2));
-
     }
 
     public long parseNumber(ListNode head) {
@@ -37,7 +35,6 @@ public class addTwoNumbers {
         ListNode current = head;
 
         while (current != null) {
-
             long temp = current.val * times;
             result = result + temp;
             current = current.next;
@@ -53,15 +50,12 @@ public class addTwoNumbers {
         ListNode result = null;
 
         for (int i = 0; i < resultArray.length; i++) {
-
             int temp = Character.getNumericValue(resultArray[i]);
             ListNode newHead = new ListNode(temp);
             newHead.next = result;
             result = newHead;
-
         }
 
         return result;
-
     }
 }

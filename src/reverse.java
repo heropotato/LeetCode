@@ -24,8 +24,7 @@ public class reverse {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        StringBuffer sBuffer = new StringBuffer();
-
+        StringBuffer tempBuffer = new StringBuffer();
         boolean flip = false;
 
         if (x < 0) {
@@ -33,16 +32,11 @@ public class reverse {
             flip = true;
         }
 
-        String temp = sBuffer.append(x).reverse().toString();
+        int result = Integer.valueOf(tempBuffer.append(x).reverse().toString());
 
-        int result = Integer.valueOf(temp);
-
-        if (flip) {
-            result = -result;
-        }
+        if (flip) return  -result;
 
         return result;
-
     }
 
 }

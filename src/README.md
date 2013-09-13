@@ -39,6 +39,11 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
   <tr>
     <td>008</td><td><a href="/src/atoi.java">String to Integer (atoi)</a></td><td><a href="http://leetcode.com/onlinejudge#question_8">@leetcode</a></td><td></td>
   </tr>
+  <tr>
+    <td>009</td><td><a href="/src/isPalindrome.java">Palindrome Number</a></td><td><a href="http://leetcode.com/onlinejudge#question_9">@leetcode</a></td><td></td>
+  </tr>
+  <tr>
+    <td>010</td><td><a href="/src/isMatch.java">Regular Expression Matching</a></td><td><a href="http://leetcode.com/onlinejudge#question_10">@leetcode</a></td><td></td>
+  </tr>
 </table>
-
 [onlineJudgement]: http://leetcode.com/onlinejudge
