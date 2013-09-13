@@ -30,7 +30,14 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
   <tr>
     <td>005</td><td><a href="/src/longestPalindrome.java">Longest Palindromic Substring</a></td><td><a href="http://leetcode.com/onlinejudge#question_5">@leetcode</a></td><td></td>
   </tr>
+  <tr>
+    <td>006</td><td><a href="/src/convert.java">ZigZag Conversion</a></td><td><a href="http://leetcode.com/onlinejudge#question_6">@leetcode</a></td><td></td>
+  </tr>
+  <tr>
+    <td>007</td><td><a href="/src/reverse.java">Reverse Integer</a></td><td><a href="http://leetcode.com/onlinejudge#question_7">@leetcode</a></td><td></td>
+  </tr>
+  <tr>
+    <td>008</td><td><a href="/src/atoi.java">String to Integer (atoi)</a></td><td><a href="http://leetcode.com/onlinejudge#question_8">@leetcode</a></td><td></td>
+  </tr>
 </table>
-[onlineJudgement]: http://leetcode.com/onlinejudge
-[email]: mailto:dev.yongwen@gmail.com
-[blogLink]: http://blog.heropotato.com/
+
