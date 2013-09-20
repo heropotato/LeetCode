@@ -1,20 +1,19 @@
 LeetCode solutions
 ------------------
-### [LeetCode Online Judge][onlineJudge] solutions in Java
+### [LeetCode Online Judge][] solutions in Java
 LeetCode online judge is considered as an effective way of preparing technically coding interviews in general. Some of solutions have been inspired by and have been learned from others' contributions on web.
 
 Check the `src` folder for source code details.
 
-[IntelliJ IDEA][intellijLink] is used for creating, implementing and polishing this project.
+[IntelliJ IDEA][] is used for creating, implementing and polishing this project.
 
 ### Issues
-In case of issues or bugs, please [reach out][email] without any hesitation.
+In case of issues or bugs, please [reach out][] without any hesitation.
 
 ### about me
-Find out more about me in person via [my blog][blogLink].
+Find out more about me in person via [my blog][].
 
-[onlineJudge]: http://leetcode.com/onlinejudge
-[email]: mailto:dev.yongwen@gmail.com
-[blogLink]: http://blog.heropotato.com/
-[intellijLink]: http://www.jetbrains.com/idea/
-[srcLink]: https://github.com/heropotato/LeetCode/tree/master/src
+[LeetCode Online Judge]: http://leetcode.com/onlinejudge
+[reach out]: mailto:dev.yongwen@gmail.com
+[my blog]: http://blog.heropotato.com/
+[IntelliJ IDEA]: http://www.jetbrains.com/idea/

@@ -7,7 +7,7 @@ Two essential java classes have been pre-defined(`ListNode` and `TreeNode`):
 * `TreeNode`: defined for binary tree usage.
 
 ### Naming references
-Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judgement][onlineJudgement].
+Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judge][].
 
 ### Question table
 
@@ -46,4 +46,4 @@ Each class is called a name, standing for easy-to-find, which is exactly same ag
     <td>010</td><td><a href="/src/isMatch.java">Regular Expression Matching</a></td><td><a href="http://leetcode.com/onlinejudge#question_10">@leetcode</a></td><td></td>
   </tr>
 </table>
-[onlineJudgement]: http://leetcode.com/onlinejudge
+[LeetCode Online Judge]: http://oj.leetcode.com/problems/
