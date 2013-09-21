@@ -24,19 +24,11 @@ public class reverse {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        StringBuffer tempBuffer = new StringBuffer();
-        boolean flip = false;
-
-        if (x < 0) {
-            x = -x;
-            flip = true;
+        if(x < 0){
+            return -Integer.valueOf(new StringBuffer().append(-x).reverse().toString());
+        }else {
+            return Integer.valueOf(new StringBuffer().append(x).reverse().toString());
         }
-
-        int result = Integer.valueOf(tempBuffer.append(x).reverse().toString());
-
-        if (flip) return  -result;
-
-        return result;
     }
 
 }
