@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -18,46 +20,41 @@ public class findMedianSortedArrays {
         int lengthA = A.length;
         int lengthB = B.length;
 
-        //total number of elements in both arrays
-        int total = lengthA + lengthB;
+        if (lengthA == 0) return lengthB % 2 == 1 ? B[lengthB / 2] : (double) (B[lengthB / 2 - 1] + B[lengthB / 2]) / 2;
+        if (lengthB == 0) return lengthA % 2 == 1 ? A[lengthA / 2] : (double) (A[lengthA / 2 - 1] + A[lengthA / 2]) / 2;
 
-        int count = 0;
-        int pointerA = lengthA - 1;
-        int pointerB = lengthB - 1;
+        int totalLength = lengthA + lengthB;
+        ArrayList<Integer> existed = new ArrayList<Integer>();
 
-        int res = 0;
-        int temp = 0;
+        int pointerA = 0, pointerB = 0;
+        int targetPos = totalLength / 2;
 
-        while (count <= (total / 2 + 1)) {
-
-            if (pointerA >= 0 && pointerB >= 0) {
+        while (targetPos >= 0) {
+            targetPos--;
+            if (pointerA < lengthA && pointerB < lengthB) {
                 if (A[pointerA] < B[pointerB]) {
-                    res = B[pointerB];
-                    pointerB--;
+                    existed.add(A[pointerA]);
+                    pointerA++;
                 } else {
-                    res = A[pointerA];
-                    pointerA--;
+                    existed.add(B[pointerB]);
+                    pointerB++;
                 }
-            } else if (pointerA >= 0) {
-                res = A[pointerA];
-                pointerA--;
+            } else if (pointerA < lengthA) {
+                existed.add(A[pointerA]);
+                pointerA++;
             } else {
-                res = B[pointerB];
-                pointerB--;
+                existed.add(B[pointerB]);
+                pointerB++;
             }
-
-            if (count == total / 2) {
-                temp = res;
-            }
-            count++;
         }
 
-        if (total % 2 == 1) {
-            return (double) temp;
+        if (totalLength % 2 == 1 || existed.size() == 1) {
+            return existed.get(existed.size() - 1);
         } else {
-            return (double) (temp + res) / 2;
+            return (double) (existed.get(existed.size() - 1) + existed.get(existed.size() - 2)) / 2;
         }
 
     }
+
 
 }
