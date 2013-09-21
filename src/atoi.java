@@ -26,75 +26,60 @@ public class atoi {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if (str == null) {
-            return 0;
-        } else {
+        if (str == null) return 0;
 
-            String sb = new String();
+        String sb = new String();
 
-            Boolean started = false;
-            Boolean minus = false;
+        Boolean started = false;
+        Boolean minus = false;
 
-            for (Character c : str.toCharArray()) {
+        for (Character c : str.toCharArray()) {
 
-                if (started == false && c == '-') {
-
+            if (!started) {
+                if (c == '-'){
                     minus = true;
                     started = true;
+                }
 
-                } else if (started == false && c == '+') {
-
+                if (c == '+'){
                     started = true;
-
-                } else if (started == false && Character.isLetter(c)) {
-
-                    break;
-
-                } else {
-
-                    if (started == true && !Character.isDigit(c)) {
-
-                        break;
-
-                    } else if (started == false && Character.isDigit(c)) {
-
-                        started = true;
-
-                        sb += c;
-
-                    } else if (started == true && Character.isDigit(c)) {
-
-                        sb += c;
-                    }
-
                 }
 
-
-            }
-
-            //System.out.println("Result is: " + sb);
-
-            if (sb.isEmpty()) {
-
-                return 0;
-
-            } else if (minus) {
-
-                try {
-                    return -(Integer.valueOf(sb));
-                } catch (NumberFormatException ex) {
-                    return Integer.MIN_VALUE;
+                if (Character.isDigit(c)){
+                    started = true;
+                    sb += c;
                 }
+
+                if (Character.isLetter(c)) break;
 
             } else {
-                try {
-                    return Integer.valueOf(sb);
-                } catch (NumberFormatException ex) {
-                    return Integer.MAX_VALUE;
-                }
+
+                if (!Character.isDigit(c)) break;
+
+                sb += c;
+
             }
 
+        }
 
+        if (sb.isEmpty()) {
+
+            return 0;
+
+        } else if (minus) {
+
+            try {
+                return -(Integer.valueOf(sb));
+            } catch (NumberFormatException ex) {
+                return Integer.MIN_VALUE;
+            }
+
+        } else {
+            try {
+                return Integer.valueOf(sb);
+            } catch (NumberFormatException ex) {
+                return Integer.MAX_VALUE;
+            }
         }
 
 
