@@ -9,7 +9,6 @@ public class convert {
 
     /*
     *
-    *
     * May 15, 2013
     *
     * ZigZag Conversion
@@ -28,95 +27,78 @@ public class convert {
     *
     * convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
     *
-    *
     * */
-    public String convert(String s, int nRows) {
+
+      public String convert(String s, int nRows) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        if (nRows == 1) return s;
+
         char[] input = s.toCharArray();
-
-        if (nRows == 1) {
-
-            return s;
-
-        }
-
 
         if (nRows == 2) {
 
-            StringBuffer firstPart = new StringBuffer();
-            StringBuffer secondPart = new StringBuffer();
+            StringBuffer firstRow = new StringBuffer();
+            StringBuffer secondRow = new StringBuffer();
 
-            for (int i = 0; i < input.length; i++) {
+            int pos = 0;
 
-                if (i % 2 == 0) {
-                    firstPart.append(input[i]);
+            for (Character c : input) {
+                if (pos % 2 == 0) {
+                    firstRow.append(c);
                 } else {
-                    secondPart.append(input[i]);
+                    secondRow.append(c);
                 }
-
+                pos++;
             }
-
-            return firstPart.append(secondPart).toString();
-
+            return firstRow.append(secondRow).toString();
         }
 
-
-        if (s.length() > nRows) {
-
-            String[] sArrays = new String[nRows];
-
-            int oneRound = 2 * nRows - 3;
-
-            int count = 0;
-
-            int times = 2;
-
-            for (int i = 0; i < s.length(); i++) {
-
-                if (count == oneRound + 1) {
-
-                    count = 0;
-                    times = 2;
-
-                }
-
-                if (count > nRows - 1) {
-
-                    sArrays[count - times] += input[i];
-
-                    times = times + 2;
-
-                } else {
-
-                    if (sArrays[count] == null) {
-                        sArrays[count] = String.valueOf(input[i]);
-                    } else {
-                        sArrays[count] += input[i];
-                    }
-                }
-
-                count++;
-
-            }
-
-            String re = new String();
-
-
-            for (String sArray : sArrays) {
-
-                re += sArray;
-            }
-
-            return re;
-
+        if (s.length() <= nRows) {
+            return s;
         } else {
 
-            return s;
+            int eachRoundPointer = 0;
+            int pointer = 0;
 
+            String[] rows = new String[nRows];
+
+            while (pointer < input.length) {
+
+                if(eachRoundPointer == 2*nRows){
+                    eachRoundPointer =0;
+                }
+
+                if(eachRoundPointer < nRows){
+                    if(rows[eachRoundPointer] == null){
+                        rows[eachRoundPointer] = String.valueOf(input[pointer]);
+                    }else {
+                        rows[eachRoundPointer] += String.valueOf(input[pointer]);
+                    }
+                    pointer++;
+                }
+
+                if(eachRoundPointer > nRows && eachRoundPointer != 2*nRows -1){
+                    if(rows[2*nRows - eachRoundPointer -1]  == null){
+                        rows[2*nRows - eachRoundPointer -1] = String.valueOf(input[pointer]);
+                    }else {
+                        rows[2*nRows - eachRoundPointer -1] += String.valueOf(input[pointer]);
+                    }
+                    pointer++;
+                }
+
+                eachRoundPointer++;
+
+            }
+
+            StringBuffer res = new StringBuffer();
+
+            for(String s1:rows){
+                res.append(s1);
+            }
+
+            return res.toString();
         }
-
-
     }
 }
