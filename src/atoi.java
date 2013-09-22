@@ -25,7 +25,6 @@ public class atoi {
     public int atoi(String str) {
         // Start typing your Java solution below
         // DO NOT write main() function
-
         if (str == null) return 0;
 
         String sb = new String();
