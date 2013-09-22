@@ -30,7 +30,6 @@ public class addTwoNumbers {
     }
 
     public long parseNumber(ListNode head) {
-
         long result = 0, times = 1;
         ListNode current = head;
 
@@ -45,7 +44,6 @@ public class addTwoNumbers {
     }
 
     public ListNode parseLinkedList(long input) {
-
         char[] resultArray = String.valueOf(input).toCharArray();
         ListNode result = null;
 
