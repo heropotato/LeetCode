@@ -22,7 +22,6 @@ public class longestPalindrome {
     public String longestPalindrome(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
-
         if (s.length() == 0) {
             return "";
         }
@@ -66,5 +65,4 @@ public class longestPalindrome {
 
         return s.substring(leftStep + 1, rightStep);
     }
-
 }
