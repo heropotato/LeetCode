@@ -1,5 +1,5 @@
 Solution details
-------------------
+----------------
 ### Essential classes
 Two essential java classes have been pre-defined(`ListNode` and `TreeNode`):
 
