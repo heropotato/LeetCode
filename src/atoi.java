@@ -29,9 +29,7 @@ public class atoi {
         if (str == null) return 0;
 
         String sb = new String();
-
-        Boolean started = false;
-        Boolean minus = false;
+        Boolean started = false, minus = false;
 
         for (Character c : str.toCharArray()) {
 
@@ -53,19 +51,14 @@ public class atoi {
                 if (Character.isLetter(c)) break;
 
             } else {
-
                 if (!Character.isDigit(c)) break;
-
                 sb += c;
-
             }
 
         }
 
         if (sb.isEmpty()) {
-
             return 0;
-
         } else if (minus) {
 
             try {
@@ -81,8 +74,5 @@ public class atoi {
                 return Integer.MAX_VALUE;
             }
         }
-
-
     }
-
 }
