@@ -14,5 +14,4 @@ public class TreeNode {
     TreeNode(int val) {
         this.val = val;
     }
-
 }
