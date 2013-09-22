@@ -34,7 +34,6 @@ public class convert {
         // DO NOT write main() function
 
         if (nRows == 1) return s;
-
         char[] input = s.toCharArray();
 
         if (nRows == 2) {
