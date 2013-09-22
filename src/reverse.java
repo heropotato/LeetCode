@@ -30,5 +30,4 @@ public class reverse {
             return Integer.valueOf(new StringBuffer().append(x).reverse().toString());
         }
     }
-
 }
