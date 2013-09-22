@@ -1,3 +1,5 @@
+import java.util.Hashtable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -18,22 +20,36 @@ public class romanToInt {
     *
     * */
 
+
+
+
     public int romanToInt(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        String digit[] = new String[]{"", "I","II","III","IV", "V","VI","VII","VIII","IX"};
-        String digit10[] = new String[]{"", "X","XX","XXX","XL","L","LX","LXX", "LXXX","XC"};
-        String digit100[] = new String[]{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-        String digit1000[]= new String[] {"", "M", "MM", "MMM"};
+        Hashtable<Character,Integer > romanToIntMap = new Hashtable<Character,Integer >();
+        romanToIntMap.put('I',1);
+        romanToIntMap.put('V',5);
+        romanToIntMap.put('X',10);
+        romanToIntMap.put('L',50);
+        romanToIntMap.put('C',100);
+        romanToIntMap.put('D',500);
+        romanToIntMap.put('M',1000);
 
         int res = 0;
         int pointer = 0;
 
         while(pointer<s.length()){
 
-            if()
+            if(romanToIntMap.containsKey(s.charAt(pointer))){
 
+                int cur = romanToIntMap.get(s.charAt(pointer));
+
+                if(pointer+1<s.length()&&(romanToIntMap.get(s.charAt(pointer+1))>cur)){
+                    res-=cur;
+                }
+                res+=cur;
+            }
         }
 
         return res;
