@@ -14,26 +14,18 @@ public class isPalindrome {
     * Determine whether an integer is a palindrome. Do this without extra space.
     *
     */
-
     public boolean isPalindrome(int x) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (x < 0) return false;
+        if(x < 0) return false;
 
-        //Find out highest digit pos of the given int
-        int pos = 1;
-
-        while (x / pos >= 10) pos *= 10;
-
-        //Compare head against tail of the given int outside in
-        while (x > 0) {
-            int head = x / pos;
-            int tail = x % 10;
-            if (head != tail) return false;
-
-            x = (x % pos) / 10;
-            pos /= 100;
+        int a = x, b = 0;
+        while (a>b){
+            b = b*10 + a%10;
+            a /= 10;
         }
-        return true;
+
+        if(a == 0) return (x==b);
+        return (a == b) || a == (b / 10);
     }
 }
