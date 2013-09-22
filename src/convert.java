@@ -29,7 +29,7 @@ public class convert {
     *
     * */
 
-      public String convert(String s, int nRows) {
+    public String convert(String s, int nRows) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
@@ -66,24 +66,24 @@ public class convert {
 
             while (pointer < input.length) {
 
-                if(eachRoundPointer == 2*nRows){
-                    eachRoundPointer =0;
+                if (eachRoundPointer == 2 * nRows) {
+                    eachRoundPointer = 0;
                 }
 
-                if(eachRoundPointer < nRows){
-                    if(rows[eachRoundPointer] == null){
+                if (eachRoundPointer < nRows) {
+                    if (rows[eachRoundPointer] == null) {
                         rows[eachRoundPointer] = String.valueOf(input[pointer]);
-                    }else {
+                    } else {
                         rows[eachRoundPointer] += String.valueOf(input[pointer]);
                     }
                     pointer++;
                 }
 
-                if(eachRoundPointer > nRows && eachRoundPointer != 2*nRows -1){
-                    if(rows[2*nRows - eachRoundPointer -1]  == null){
-                        rows[2*nRows - eachRoundPointer -1] = String.valueOf(input[pointer]);
-                    }else {
-                        rows[2*nRows - eachRoundPointer -1] += String.valueOf(input[pointer]);
+                if (eachRoundPointer > nRows && eachRoundPointer != 2 * nRows - 1) {
+                    if (rows[2 * nRows - eachRoundPointer - 1] == null) {
+                        rows[2 * nRows - eachRoundPointer - 1] = String.valueOf(input[pointer]);
+                    } else {
+                        rows[2 * nRows - eachRoundPointer - 1] += String.valueOf(input[pointer]);
                     }
                     pointer++;
                 }
@@ -94,7 +94,7 @@ public class convert {
 
             StringBuffer res = new StringBuffer();
 
-            for(String s1:rows){
+            for (String s1 : rows) {
                 res.append(s1);
             }
 

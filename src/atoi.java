@@ -34,16 +34,16 @@ public class atoi {
         for (Character c : str.toCharArray()) {
 
             if (!started) {
-                if (c == '-'){
+                if (c == '-') {
                     minus = true;
                     started = true;
                 }
 
-                if (c == '+'){
+                if (c == '+') {
                     started = true;
                 }
 
-                if (Character.isDigit(c)){
+                if (Character.isDigit(c)) {
                     started = true;
                     sb += c;
                 }
