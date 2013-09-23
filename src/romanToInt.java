@@ -20,9 +20,6 @@ public class romanToInt {
     *
     * */
 
-
-
-
     public int romanToInt(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
@@ -41,18 +38,23 @@ public class romanToInt {
 
         while(pointer<s.length()){
 
-            if(romanToIntMap.containsKey(s.charAt(pointer))){
+            char temp = s.charAt(pointer);
 
-                int cur = romanToIntMap.get(s.charAt(pointer));
+            if(romanToIntMap.containsKey(temp)){
+
+                int cur = romanToIntMap.get(temp);
 
                 if(pointer+1<s.length()&&(romanToIntMap.get(s.charAt(pointer+1))>cur)){
                     res-=cur;
+                }else{
+                    res+=cur;
                 }
-                res+=cur;
+
             }
+
+            pointer++;
         }
 
         return res;
     }
-
  }
