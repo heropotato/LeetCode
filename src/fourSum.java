@@ -10,6 +10,19 @@ import java.util.HashSet;
  * To change this template use File | Settings | File Templates.
  */
 public class fourSum {
+
+    /*
+    *
+    * 4Sum
+    *
+    * Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target?
+    *
+    * Find all unique quadruplets in the array which gives the sum of target.
+    *
+    *
+    *
+    * */
+
     public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
         // Start typing your Java solution below
         // DO NOT write main() function
