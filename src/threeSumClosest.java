@@ -25,36 +25,34 @@ public class threeSumClosest {
     *
     * */
 
-     public int threeSumClosest(int[] num, int target) {
+    public int threeSumClosest(int[] num, int target) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        int res = Integer.MAX_VALUE;
         Arrays.sort(num);
+        int res = num[0]+num[1]+num[2];
 
-        for(int i=0; i<num.length-2;i++){
+        for (int i = 0; i < num.length - 2; i++) {
 
-            int lPointer = i+1;
-            int rPointer = num.length-1;
+            int lPointer = i + 1;
+            int rPointer = num.length - 1;
 
-            while(lPointer < rPointer){
+            while (lPointer < rPointer) {
 
                 int temp = num[i] + num[lPointer] + num[rPointer];
-                if(temp == target){
+                if (temp == target) {
                     return target;
-                }else if(temp > target){
-                    if(Math.abs(target - res)>Math.abs(target - temp)) res=temp;
+                }else if (temp > target) {
+                    if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
                     rPointer--;
                 }else{
-                    if(Math.abs(target - res)>Math.abs(target - temp)) res=temp;
+                    if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
                     lPointer++;
                 }
             }
 
         }
-
         return res;
-
     }
 
- }
+}
