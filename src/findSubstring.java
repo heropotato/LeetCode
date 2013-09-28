@@ -51,7 +51,7 @@ public class findSubstring {
         while (i <= S.length() - blockSize) {
             int runner = i;
             HashMap<String, Integer> tempHashMap = new HashMap<String, Integer>(hashMap);
-            while (true) {
+            while (runner - i < blockSize) {
                 String temp = S.substring(runner, runner + lengthPerWord);
                 if (tempHashMap.containsKey(temp.toString())) {
                     int num = tempHashMap.get(temp.toString());
