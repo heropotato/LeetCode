@@ -23,7 +23,7 @@ public class longestValidParentheses {
     * */
 
 
-    public int longestValidParentheses(String s) {
+    public  int longestValidParentheses(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
