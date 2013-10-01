@@ -51,6 +51,7 @@ public class isValidSudoku {
                 char c = board[row][col];
                 rows.get(row).add(c);
                 columns.get(col).add(c);
+
                 if(row<3){
                     if(col<3){
                         sets.get(0).add(c);
@@ -109,12 +110,8 @@ public class isValidSudoku {
         HashSet<Character> hashSet = new HashSet<Character>();
 
         for(Character s:set){
-            if(s=='.') continue;
-            if(hashSet.contains(s)){
-                return false;
-            }
-
-            hashSet.add(s);
+            if(hashSet.contains(s)) return false;
+            if(s!='.') hashSet.add(s);
         }
 
         return true;
