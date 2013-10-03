@@ -20,11 +20,7 @@ public class isMatch {
     *
     **/
 
-    public static void main(String[] args) {
-        System.out.println(isMatch("aa", "a*"));
-    }
-
-    public static boolean isMatch(String s, String p) {
+    public boolean isMatch(String s, String p) {
         //Java note: s.substring(n) will be "" if n == s.length(), but if n > s.length(), index oob error
         //Start typing your Java solution below
         //DO NOT write main() function
