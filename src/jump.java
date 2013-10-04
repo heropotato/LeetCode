@@ -29,14 +29,16 @@ public class jump {
 * */
 
     public int jump(int[] A) {
-        int steps = 0;
-        for (int i = 1, maxMoveToPos = A[0], forwardRunner = 0; i < A.length; i++) {
-            if (i > forwardRunner) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        int moves = 0;
+        for(int i=1, maxMoveToPos = A[0], forwardRunner = 0; i<A.length;i++){
+            if(i>forwardRunner){
+                //make an real move
                 forwardRunner = maxMoveToPos;
-                steps++;
+                moves++;
             }
-            maxMoveToPos = Math.max(maxMoveToPos, i + A[i]);
+            maxMoveToPos = Math.max(maxMoveToPos, i+A[i]);
         }
-        return steps;
+        return moves;
     }
 }
