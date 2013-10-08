@@ -19,5 +19,4 @@ public class Interval {
         start = s;
         end = e;
     }
-
 }
