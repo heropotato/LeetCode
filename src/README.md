@@ -1,7 +1,7 @@
 Solution details
 ----------------
 ### Essential classes
-Two essential java classes have been pre-defined(`ListNode` and `TreeNode`):
+Two essential java classes have been pre-defined(`ListNode`, `TreeNode` and `Interval`):
 
 * `ListNode`: defined for singly linked list usages.
 * `TreeNode`: defined for binary tree usages.
