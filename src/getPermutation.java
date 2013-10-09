@@ -16,7 +16,6 @@ public class getPermutation {
     * By listing and labeling all of the permutations in order,
     * We get the following sequence (ie, for n = 3):
     *
-    *
     * "123"
     * "132"
     * "213"
