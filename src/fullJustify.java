@@ -94,7 +94,7 @@ public class fullJustify {
                         temp.append(pool.poll());
                         continue;
                     }
-                    if (times != 0) temp.append(String.format("%1$" + times + "s", ""));
+                    temp.append(String.format("%1$" + times + "s", ""));
                     temp.append(pool.poll());
                 }
                 res.add(temp.toString());
@@ -105,7 +105,7 @@ public class fullJustify {
                         temp.append(pool.poll());
                         continue;
                     }
-                    if (times != 0) temp.append(String.format("%1$" + times + "s", ""));
+                    temp.append(String.format("%1$" + times + "s", ""));
                     if (extraSpaces > 0) {
                         temp.append(" ");
                         extraSpaces--;
