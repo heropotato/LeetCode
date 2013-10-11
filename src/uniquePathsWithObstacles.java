@@ -41,11 +41,11 @@ public class uniquePathsWithObstacles {
         // DO NOT write main() function
 
         // Pretty same as "Unique Paths" solution except defining whether the position is obstacle or not. If so, then set position's value to 0 (means no path available across)
-        int[][] board = new int[100+1][100+1];
+        int[][] board = new int[100 + 1][100 + 1];
         int i = 1;
-        for(int[] ints:obstacleGrid){
-            for (int j = 0; j < ints.length; j++){
-                board[i][j+1] = ints[j];
+        for (int[] ints : obstacleGrid) {
+            for (int j = 0; j < ints.length; j++) {
+                board[i][j + 1] = ints[j];
             }
             i++;
         }
@@ -54,19 +54,16 @@ public class uniquePathsWithObstacles {
         //pre set either (0,1) or (1,0) to 1 for assuring (1, 1) is 1
         board[0][1] = 1;
 
-        for (int row = 1; row<m+1; row++){
-            for (int column = 1; column<n+1; column++){
-                if(board[row][column] == 1){
+        for (int row = 1; row < m + 1; row++) {
+            for (int column = 1; column < n + 1; column++) {
+                if (board[row][column] == 1) {
                     board[row][column] = 0;
-                }else {
-                    board[row][column] = board[row-1][column] + board[row][column-1];
+                } else {
+                    board[row][column] = board[row - 1][column] + board[row][column - 1];
                 }
-
             }
         }
 
         return board[m][n];
     }
-
-
- }
+}
