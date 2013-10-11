@@ -40,7 +40,8 @@ public class uniquePathsWithObstacles {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        // Pretty same as "Unique Paths" solution except defining whether the position is obstacle or not. If so, then set position's value to 0 (means no path available across)
+        // Pretty same as "Unique Paths" solution except defining whether the position is obstacle or not.
+        // If so, then set position's value to 0 (means no path available across)
         int[][] board = new int[100 + 1][100 + 1];
         int i = 1;
         for (int[] ints : obstacleGrid) {
