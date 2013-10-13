@@ -28,7 +28,6 @@ public class combinationSum {
     * [7]
     * [2, 2, 3]
     *
-    *
     * */
 
     public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
