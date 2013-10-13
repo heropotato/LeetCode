@@ -20,7 +20,6 @@ public class generateParenthesis {
     *
     * "((()))", "(()())", "(())()", "()(())", "()()()"
     *
-    *
     * */
 
     public ArrayList<String> generateParenthesis(int n) {
