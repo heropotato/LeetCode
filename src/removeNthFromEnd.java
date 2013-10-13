@@ -21,6 +21,7 @@ public class removeNthFromEnd {
     * After removing the second node from the end, the linked list becomes 1->2->3->5.
     *
     *
+    *
     * */
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
