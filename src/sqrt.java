@@ -15,7 +15,6 @@ public class sqrt {
     *
     * Compute and return the square root of x.
     *
-    *
     * */
 
     public int sqrt(int x) {
