@@ -23,7 +23,6 @@ public class canJump {
     * A = [3,2,1,0,4], return false.
     *
     *
-    *
     * */
 
     public boolean canJump(int[] A) {
