@@ -13,6 +13,7 @@ public class longestCommonPrefix {
     *
     * Write a function to find the longest common prefix string amongst an array of strings.
     *
+    *
     * */
 
     public String longestCommonPrefix(String[] strs) {
