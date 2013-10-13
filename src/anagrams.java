@@ -20,7 +20,6 @@ public class anagrams {
     *
     * Note: All inputs will be in lower-case.
     *
-    *
     * */
 
     public ArrayList<String> anagrams(String[] strs) {
