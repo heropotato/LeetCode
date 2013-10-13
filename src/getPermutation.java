@@ -29,7 +29,6 @@ public class getPermutation {
     * Note: Given n will be between 1 and 9 inclusive.
     *
     *
-    *
     * Hints:
     *
     * Inspired from Yu's Coding Garden: http://yucoding.blogspot.com/2013/04/leetcode-question-68-permutation.html
