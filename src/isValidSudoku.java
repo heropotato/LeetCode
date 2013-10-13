@@ -20,7 +20,6 @@ public class isValidSudoku {
     *
     * A partially filled sudoku which is valid.
     *
-    *
     * */
 
     public boolean isValidSudoku(char[][] board) {
