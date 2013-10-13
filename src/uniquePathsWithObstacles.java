@@ -30,7 +30,6 @@ public class uniquePathsWithObstacles {
     *
     * Note: m and n will be at most 100.
     *
-    *
     * */
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
