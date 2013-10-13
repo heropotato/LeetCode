@@ -20,7 +20,6 @@ public class solveNQueens {
     *
     * Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
     *
-    *
     * */
 
     public ArrayList<String[]> solveNQueens(int n) {
