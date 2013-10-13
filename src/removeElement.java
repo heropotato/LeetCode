@@ -15,6 +15,7 @@ public class removeElement {
     *
     * The order of elements can be changed. It doesn't matter what you leave beyond the new length.
     *
+    *
     * */
 
     public int removeElement(int[] A, int elem) {
