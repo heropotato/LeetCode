@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -33,7 +32,7 @@ public class isValidSudoku {
         ArrayList<ArrayList<Character>> sets = new ArrayList<ArrayList<Character>>();
 
         int count = 0;
-        while(count<9){
+        while (count < 9) {
             ArrayList<Character> tempR = new ArrayList<Character>();
             ArrayList<Character> tempC = new ArrayList<Character>();
             ArrayList<Character> tempS = new ArrayList<Character>();
@@ -43,47 +42,47 @@ public class isValidSudoku {
             count++;
         }
 
-        int row=0;
-        while(row<9){
-            int col=0;
-            while (col<9){
+        int row = 0;
+        while (row < 9) {
+            int col = 0;
+            while (col < 9) {
 
                 char c = board[row][col];
                 rows.get(row).add(c);
                 columns.get(col).add(c);
 
-                if(row<3){
-                    if(col<3){
+                if (row < 3) {
+                    if (col < 3) {
                         sets.get(0).add(c);
                     }
-                    if(col>=3 && col<6){
+                    if (col >= 3 && col < 6) {
                         sets.get(1).add(c);
                     }
-                    if(col>=6){
+                    if (col >= 6) {
                         sets.get(2).add(c);
                     }
                 }
 
-                if(row>=3 && row<6){
-                    if(col<3){
+                if (row >= 3 && row < 6) {
+                    if (col < 3) {
                         sets.get(3).add(c);
                     }
-                    if(col>=3 && col<6){
+                    if (col >= 3 && col < 6) {
                         sets.get(4).add(c);
                     }
-                    if(col>=6){
+                    if (col >= 6) {
                         sets.get(5).add(c);
                     }
                 }
 
-                if(row>=6){
-                    if(col<3){
+                if (row >= 6) {
+                    if (col < 3) {
                         sets.get(6).add(c);
                     }
-                    if(col>=3 && col<6){
+                    if (col >= 3 && col < 6) {
                         sets.get(7).add(c);
                     }
-                    if(col>=6){
+                    if (col >= 6) {
                         sets.get(8).add(c);
                     }
                 }
@@ -93,10 +92,10 @@ public class isValidSudoku {
         }
 
         count--;
-        while (count>=0){
-            if(!isValidSudoku(rows.get(count))){
+        while (count >= 0) {
+            if (!isValidSudoku(rows.get(count))) {
             }
-            if(!isValidSudoku(rows.get(count)) || !isValidSudoku(columns.get(count)) || !isValidSudoku(sets.get(count))){
+            if (!isValidSudoku(rows.get(count)) || !isValidSudoku(columns.get(count)) || !isValidSudoku(sets.get(count))) {
                 return false;
             }
             count--;
@@ -109,9 +108,9 @@ public class isValidSudoku {
         // DO NOT write main() function
         HashSet<Character> hashSet = new HashSet<Character>();
 
-        for(Character s:set){
-            if(hashSet.contains(s)) return false;
-            if(s!='.') hashSet.add(s);
+        for (Character s : set) {
+            if (hashSet.contains(s)) return false;
+            if (s != '.') hashSet.add(s);
         }
 
         return true;

@@ -25,40 +25,40 @@ public class search {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if(A.length <1) return -1;
+        if (A.length < 1) return -1;
         int first = A[0];
-        int last = A[A.length-1];
+        int last = A[A.length - 1];
 
-        if(last > first){
-            if(target < first || target > last) return -1;
-            if(Math.abs(target - first) > Math.abs(target - last)){
-                int i = A.length-1;
-                while(i>=0){
-                    if(A[i] == target) return i;
+        if (last > first) {
+            if (target < first || target > last) return -1;
+            if (Math.abs(target - first) > Math.abs(target - last)) {
+                int i = A.length - 1;
+                while (i >= 0) {
+                    if (A[i] == target) return i;
                     i--;
                 }
                 return -1;
-            }else{
+            } else {
                 int i = 0;
-                while(i<A.length){
-                    if(A[i] == target) return i;
+                while (i < A.length) {
+                    if (A[i] == target) return i;
                     i++;
                 }
                 return -1;
             }
-        }else{
-            if(target >= first){
+        } else {
+            if (target >= first) {
                 int i = 0;
-                while(i<A.length){
-                    if(A[i] == target) return i;
+                while (i < A.length) {
+                    if (A[i] == target) return i;
                     i++;
                 }
                 return -1;
 
-            }else{
-                int i = A.length-1;
-                while(i>=0){
-                    if(A[i] == target) return i;
+            } else {
+                int i = A.length - 1;
+                while (i >= 0) {
+                    if (A[i] == target) return i;
                     i--;
                 }
                 return -1;

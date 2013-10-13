@@ -27,25 +27,25 @@ public class maxSubArray {
         int res = Integer.MIN_VALUE;
         int i = 0;
         Stack<Integer> mostRight = new Stack<Integer>();
-        while (i<A.length){
-            int left = i-1, right = i+1, leftMax = 0, rightMax = 0, leftSum = leftMax, rightSum = rightMax;
+        while (i < A.length) {
+            int left = i - 1, right = i + 1, leftMax = 0, rightMax = 0, leftSum = leftMax, rightSum = rightMax;
             while (left >= 0) {
                 leftSum += A[left];
-                if(leftSum>leftMax) leftMax = leftSum;
+                if (leftSum > leftMax) leftMax = leftSum;
                 left--;
             }
             while (right < A.length) {
                 rightSum += A[right];
-                if(rightSum>rightMax) {
+                if (rightSum > rightMax) {
                     rightMax = rightSum;
                     mostRight.push(right);
                 }
                 right++;
             }
-            if (leftMax + rightMax + A[i] > res ) res = leftMax + rightMax + A[i];
-            if(!mostRight.isEmpty() && mostRight.peek() > i){
+            if (leftMax + rightMax + A[i] > res) res = leftMax + rightMax + A[i];
+            if (!mostRight.isEmpty() && mostRight.peek() > i) {
                 i = mostRight.peek();
-            }else {
+            } else {
                 i++;
             }
         }

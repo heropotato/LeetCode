@@ -19,17 +19,17 @@ public class longestCommonPrefix {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if(strs.length == 0) return "";
+        if (strs.length == 0) return "";
         String res = strs[0];
 
-        for(String s:strs){
+        for (String s : strs) {
 
-            if(s.isEmpty()) return "";
+            if (s.isEmpty()) return "";
             int tempLength = Math.min(res.length(), s.length());
             int pointer = 0;
 
-            while(pointer < tempLength){
-                if(res.charAt(pointer) != s.charAt(pointer)) break;
+            while (pointer < tempLength) {
+                if (res.charAt(pointer) != s.charAt(pointer)) break;
                 pointer++;
             }
 

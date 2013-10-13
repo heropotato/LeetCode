@@ -25,17 +25,17 @@ public class rotateRight {
         // DO NOT write main() function
 
         //rotate to right 1 position per round
-        if(head == null || head.next == null || n == 0) return head;
+        if (head == null || head.next == null || n == 0) return head;
         ListNode current = head;
         ListNode runner = head.next;
 
-        while(runner.next != null){
+        while (runner.next != null) {
             current = current.next;
             runner = runner.next;
         }
 
         current.next = null;
         runner.next = head;
-        return rotateRight(runner, n-1);
+        return rotateRight(runner, n - 1);
     }
- }
+}

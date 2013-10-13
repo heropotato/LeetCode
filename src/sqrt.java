@@ -24,8 +24,8 @@ public class sqrt {
         long bottom = 0, top = x;
         while (top >= bottom) {
             long midVal = bottom + (top - bottom) / 2;
-            if (x < midVal * midVal) top = midVal-1;
-            else bottom = midVal+1;
+            if (x < midVal * midVal) top = midVal - 1;
+            else bottom = midVal + 1;
         }
         return (int) top;
     }

@@ -23,37 +23,37 @@ public class generateParenthesis {
     *
     * */
 
-     public ArrayList<String> generateParenthesis(int n) {
+    public ArrayList<String> generateParenthesis(int n) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
         ArrayList<String> res = new ArrayList<String>();
-        if(n == 0) return res;
+        if (n == 0) return res;
 
         HashSet<String> hashSet = new HashSet<String>();
-        while(n>0){
+        while (n > 0) {
             n--;
             String insert = "()";
 
-            if(res.size() ==0){
+            if (res.size() == 0) {
                 res.add(insert);
                 hashSet.add(insert);
                 continue;
             }
 
             ArrayList<String> newAdd = new ArrayList<String>();
-            for(String s:res){
+            for (String s : res) {
 
                 int i = 0;
-                while(i<s.length()){
+                while (i < s.length()) {
                     StringBuffer temp = new StringBuffer();
-                    if(i==0){
+                    if (i == 0) {
                         temp.append(insert).append(s);
-                        if(hashSet.add(temp.toString())) newAdd.add(temp.toString());
+                        if (hashSet.add(temp.toString())) newAdd.add(temp.toString());
                         temp = new StringBuffer();
                     }
-                    temp.append(s.substring(0,i+1)).append(insert).append(s.substring(i+1));
-                    if(hashSet.add(temp.toString())) newAdd.add(temp.toString());
+                    temp.append(s.substring(0, i + 1)).append(insert).append(s.substring(i + 1));
+                    if (hashSet.add(temp.toString())) newAdd.add(temp.toString());
                     i++;
                 }
 

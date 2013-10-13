@@ -39,9 +39,9 @@ public class reverseKGroup {
         while (current != null) {
             int count = 0;
 
-            while (count<k){
-                if(current == null){
-                    if(newHead == null) return head;
+            while (count < k) {
+                if (current == null) {
+                    if (newHead == null) return head;
                     return newHead;
                 }
                 reversePart.push(current);
@@ -62,4 +62,4 @@ public class reverseKGroup {
         }
         return newHead;
     }
- }
+}

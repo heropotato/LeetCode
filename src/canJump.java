@@ -32,22 +32,22 @@ public class canJump {
 
         //canJump == can skip '0' positions? If so, return true; otherwise, return false;
         int i = 0;
-        for(int a:A){
-            if(i==(A.length - 1)) return true;
-            if(a==0){
+        for (int a : A) {
+            if (i == (A.length - 1)) return true;
+            if (a == 0) {
                 boolean res = false;
-                for(int j = 0; j<i; j++){
-                    int offset = i-j;
-                    if(A[j] > offset){
+                for (int j = 0; j < i; j++) {
+                    int offset = i - j;
+                    if (A[j] > offset) {
                         res = true;
                         break;
                     }
                 }
-                if(!res) return false;
+                if (!res) return false;
             }
             i++;
         }
         return true;
     }
 
- }
+}

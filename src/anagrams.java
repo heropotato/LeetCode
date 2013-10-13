@@ -36,11 +36,11 @@ public class anagrams {
         int i = 0;
         for (String str : strs) {
             if (str.isEmpty()) {
-                if(emptyString[0] ==0){
+                if (emptyString[0] == 0) {
                     emptyString[0] = 1;
                     emptyString[1] = i;
-                }else {
-                    if(indexes.add(emptyString[1])) res.add("");
+                } else {
+                    if (indexes.add(emptyString[1])) res.add("");
                     res.add("");
                     indexes.add(i);
                 }
@@ -50,7 +50,7 @@ public class anagrams {
                 if (!patterns.containsKey(new String(temp))) {
                     patterns.put(new String(temp), i);
                 } else {
-                    if(indexes.add(patterns.get(new String(temp)))) res.add(strs[patterns.get(new String(temp))]);
+                    if (indexes.add(patterns.get(new String(temp)))) res.add(strs[patterns.get(new String(temp))]);
                     res.add(str);
                     indexes.add(i);
                 }

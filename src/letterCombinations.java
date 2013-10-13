@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,22 +24,22 @@ public class letterCombinations {
         // DO NOT write main() function
 
         ArrayList<String> res = new ArrayList<String>();
-        if(digits.length() == 0){
+        if (digits.length() == 0) {
             res.add("");
             return res;
         }
 
-        for(char c:digits.toCharArray()){
+        for (char c : digits.toCharArray()) {
             int tempNum = Integer.valueOf(String.valueOf(c));
 
-            if(res.size() == 0) {
+            if (res.size() == 0) {
                 res = letterCombinations(tempNum);
-            }else{
+            } else {
 
                 ArrayList<String> newRes = new ArrayList<String>();
 
-                for(String s: res){
-                    for(String n:letterCombinations(tempNum)){
+                for (String s : res) {
+                    for (String n : letterCombinations(tempNum)) {
                         String temp = s + n;
                         newRes.add(temp);
                     }

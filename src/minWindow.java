@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -29,7 +27,7 @@ public class minWindow {
     *
     * */
 
-     public String minWindow(String S, String T) {
+    public String minWindow(String S, String T) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
@@ -42,7 +40,7 @@ public class minWindow {
         int[] setOfS = new int[256];
 
         //iterate T, store count of each char at char(th unsigned 16 bit int) index
-        for (char t:T.toCharArray()){
+        for (char t : T.toCharArray()) {
             setOfT[t]++;
         }
 
@@ -53,7 +51,7 @@ public class minWindow {
             char temp = S.charAt(i);
             //continue the loop if current char in S dose not appear in T
             if (setOfT[temp] == 0) continue;
-            
+
             //setOfS tracks count of chars against setOfT only
             setOfS[temp]++;
             //countOfMatched counts each valid char appearance found in S
@@ -71,8 +69,8 @@ public class minWindow {
                 }
 
                 //compare to previous minWindow length, assign the shorter to the res as answer
-                if (minWindowLength > i +1 - startIndexOfCurrent) {
-                    minWindowLength = i +1 - startIndexOfCurrent;
+                if (minWindowLength > i + 1 - startIndexOfCurrent) {
+                    minWindowLength = i + 1 - startIndexOfCurrent;
                     res = S.substring(startIndexOfCurrent, i + 1);
                 }
             }

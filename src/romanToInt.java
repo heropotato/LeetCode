@@ -24,30 +24,30 @@ public class romanToInt {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        Hashtable<Character,Integer > romanToIntMap = new Hashtable<Character,Integer >();
-        romanToIntMap.put('I',1);
-        romanToIntMap.put('V',5);
-        romanToIntMap.put('X',10);
-        romanToIntMap.put('L',50);
-        romanToIntMap.put('C',100);
-        romanToIntMap.put('D',500);
-        romanToIntMap.put('M',1000);
+        Hashtable<Character, Integer> romanToIntMap = new Hashtable<Character, Integer>();
+        romanToIntMap.put('I', 1);
+        romanToIntMap.put('V', 5);
+        romanToIntMap.put('X', 10);
+        romanToIntMap.put('L', 50);
+        romanToIntMap.put('C', 100);
+        romanToIntMap.put('D', 500);
+        romanToIntMap.put('M', 1000);
 
         int res = 0;
         int pointer = 0;
 
-        while(pointer<s.length()){
+        while (pointer < s.length()) {
 
             char temp = s.charAt(pointer);
 
-            if(romanToIntMap.containsKey(temp)){
+            if (romanToIntMap.containsKey(temp)) {
 
                 int cur = romanToIntMap.get(temp);
 
-                if(pointer+1<s.length()&&(romanToIntMap.get(s.charAt(pointer+1))>cur)){
-                    res-=cur;
-                }else{
-                    res+=cur;
+                if (pointer + 1 < s.length() && (romanToIntMap.get(s.charAt(pointer + 1)) > cur)) {
+                    res -= cur;
+                } else {
+                    res += cur;
                 }
 
             }
@@ -57,4 +57,4 @@ public class romanToInt {
 
         return res;
     }
- }
+}

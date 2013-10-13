@@ -29,9 +29,9 @@ public class lengthOfLastWord {
         // DO NOT write main() function
         int res = 0;
         boolean skip = true;
-        for(int i = s.length()-1; i>=0; i--){
-            if(s.charAt(i) == ' '){
-                if(skip) continue;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ' ') {
+                if (skip) continue;
                 break;
             }
             skip = false;
@@ -39,4 +39,4 @@ public class lengthOfLastWord {
         }
         return res;
     }
- }
+}

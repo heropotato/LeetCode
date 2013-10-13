@@ -1,5 +1,3 @@
-import java.io.PrintStream;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -28,14 +26,14 @@ public class generateMatrix {
     *
     * */
 
-    public static void main(String[] args){
-        for(int[] ints:generateMatrix(9)){
+    public static void main(String[] args) {
+        for (int[] ints : generateMatrix(9)) {
             int count = 0;
-            for (int i:ints){
+            for (int i : ints) {
                 System.out.print(i);
-                if(count == ints.length-1){
+                if (count == ints.length - 1) {
                     System.out.println(". ");
-                }else {
+                } else {
                     System.out.print(",     ");
                 }
                 count++;
@@ -47,14 +45,14 @@ public class generateMatrix {
         // Start typing your Java solution below
         // DO NOT write main() function
         int[][] res = new int[n][n];
-        int basePoint = n%2==0?n/2-1:n/2;
+        int basePoint = n % 2 == 0 ? n / 2 - 1 : n / 2;
         generateMatrix(0, 0, n, res, 1, basePoint);
         return res;
     }
 
     public static void generateMatrix(int startRow, int startCol, int n, int[][] matrix, int count, int basePoint) {
 
-        if (startRow == basePoint && n%2!=0 ) {
+        if (startRow == basePoint && n % 2 != 0) {
             matrix[startRow][startCol] = count;
             return;
         }
@@ -67,13 +65,13 @@ public class generateMatrix {
         //right side: top down
         for (int i = startRow; i < n - startRow; i++) {
             if (i == n - startRow - 1) continue;
-            matrix[i][n-startCol-1] = count;
+            matrix[i][n - startCol - 1] = count;
             count++;
         }
         //bottom: right to left
         for (int i = n - startCol - 1; i >= startCol; i--) {
             if (i == startCol) continue;
-            matrix[n-startRow-1][i] = count;
+            matrix[n - startRow - 1][i] = count;
             count++;
         }
         //left side: bottom up
@@ -83,10 +81,10 @@ public class generateMatrix {
             count++;
         }
 
-        if(startRow + 1 <= basePoint){
-            generateMatrix(startRow+1, startCol+1, n, matrix, count, basePoint);
+        if (startRow + 1 <= basePoint) {
+            generateMatrix(startRow + 1, startCol + 1, n, matrix, count, basePoint);
         }
 
     }
 
- }
+}

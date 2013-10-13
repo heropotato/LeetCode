@@ -20,17 +20,22 @@ public class pow {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if(n==0){return 1.0;}
-        if(n==1){return x;}
-        if(n==-1){return 1/x;}
-
-        if(n%2==0){
-            double temp = pow(x, n/2);
-            return temp*temp;
+        if (n == 0) {
+            return 1.0;
         }
-        else{
-            double temp = pow(x, (n-1)/2);
-            return x*temp*temp;
+        if (n == 1) {
+            return x;
+        }
+        if (n == -1) {
+            return 1 / x;
+        }
+
+        if (n % 2 == 0) {
+            double temp = pow(x, n / 2);
+            return temp * temp;
+        } else {
+            double temp = pow(x, (n - 1) / 2);
+            return x * temp * temp;
         }
     }
 

@@ -33,7 +33,7 @@ public class divide {
         while (dividendABS > 0 && i >= 0) {
             while (dividendABS >= divisorsShiftList.get(i)) {
                 dividendABS -= divisorsShiftList.get(i);
-                res += (1<<i);
+                res += (1 << i);
             }
             i--;
         }

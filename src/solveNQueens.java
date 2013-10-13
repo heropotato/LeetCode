@@ -37,7 +37,7 @@ public class solveNQueens {
         if (currentRow == n) {
             String[] solution = new String[n];
             int row = 0;
-            for(int col : existedQueens){
+            for (int col : existedQueens) {
                 char[] tempRow = new char[n];
                 Arrays.fill(tempRow, '.');
                 tempRow[col] = 'Q';

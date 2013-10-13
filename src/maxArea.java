@@ -24,23 +24,23 @@ public class maxArea {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if(height.length<2) return 0;
+        if (height.length < 2) return 0;
 
         //user two pointer for scanning height[] from outside in
         int pointerL = 0;
-        int pointerR = height.length -1;
+        int pointerR = height.length - 1;
 
         int maxArea = 0;
 
         //The lower height vertical line will limit volume of current container
         //Always move the lower one outside in to try to find greater container volume
-        while(pointerL < pointerR){
-            int temp = Math.min(height[pointerL], height[pointerR])*(pointerR-pointerL);
+        while (pointerL < pointerR) {
+            int temp = Math.min(height[pointerL], height[pointerR]) * (pointerR - pointerL);
             maxArea = Math.max(temp, maxArea);
 
-            if(height[pointerL] > height[pointerR]){
+            if (height[pointerL] > height[pointerR]) {
                 pointerR--;
-            }else{
+            } else {
                 pointerL++;
             }
 

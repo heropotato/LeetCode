@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -29,7 +28,7 @@ public class permuteUnique {
         // DO NOT write main() function
 
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-        if(num.length == 0) return res;
+        if (num.length == 0) return res;
 
         for (int n : num) {
             ArrayList<ArrayList<Integer>> newRes = new ArrayList<ArrayList<Integer>>();
@@ -45,7 +44,7 @@ public class permuteUnique {
                 while (i <= tempList.size()) {
                     ArrayList<Integer> temp = new ArrayList<Integer>(tempList);
                     temp.add(i, n);
-                    if(noDuplicates.add(temp)) newRes.add(temp);
+                    if (noDuplicates.add(temp)) newRes.add(temp);
                     i++;
                 }
             }

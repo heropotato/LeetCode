@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen

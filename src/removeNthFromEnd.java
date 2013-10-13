@@ -30,18 +30,18 @@ public class removeNthFromEnd {
         ListNode current = head, preDelete = newList;
         newList.next = head;
 
-        while(n>0 && current!=null){
+        while (n > 0 && current != null) {
             current = current.next;
             n--;
         }
 
-        while(current != null){
+        while (current != null) {
             current = current.next;
             preDelete = preDelete.next;
         }
 
-        if(preDelete.next != null) preDelete.next = preDelete.next.next;
+        if (preDelete.next != null) preDelete.next = preDelete.next.next;
         return newList.next;
     }
 
- }
+}

@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -31,13 +29,13 @@ public class jump {
     public int jump(int[] A) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         int moves = 0;
-        for(int i=1, maxMoveToPos = A[0], forwardRunner = 0; i<A.length;i++){
-            if(i>forwardRunner){
+        for (int i = 1, maxMoveToPos = A[0], forwardRunner = 0; i < A.length; i++) {
+            if (i > forwardRunner) {
                 //make an real move
                 forwardRunner = maxMoveToPos;
                 moves++;
             }
-            maxMoveToPos = Math.max(maxMoveToPos, i+A[i]);
+            maxMoveToPos = Math.max(maxMoveToPos, i + A[i]);
         }
         return moves;
     }

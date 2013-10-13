@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.HashMap;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -44,15 +41,15 @@ public class getPermutation {
         // DO NOT write main() function
 
         int[] temp = new int[n];
-        for (int i = 0; i<n;i++){
-            temp[i] = i+1;
+        for (int i = 0; i < n; i++) {
+            temp[i] = i + 1;
         }
-        k=k-1;
+        k = k - 1;
         StringBuffer res = new StringBuffer("");
 
-        for (int i = n-1; i >= 0; i--){
+        for (int i = n - 1; i >= 0; i--) {
             int times = k / factOfN(i);
-            for (int sc = 0; sc <= times; sc++){
+            for (int sc = 0; sc <= times; sc++) {
                 if (temp[sc] == -1) times++;
             }
             res.append(temp[times]);
@@ -63,8 +60,8 @@ public class getPermutation {
 
     }
 
-    private int factOfN(int n){
-        if(n==0) return 1;
-        return n*factOfN(n-1);
+    private int factOfN(int n) {
+        if (n == 0) return 1;
+        return n * factOfN(n - 1);
     }
- }
+}

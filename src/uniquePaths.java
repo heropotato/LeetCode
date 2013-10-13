@@ -23,19 +23,19 @@ public class uniquePaths {
     *
     * */
 
-     public int uniquePaths(int m, int n) {
+    public int uniquePaths(int m, int n) {
 
         //initialize a board as 101*101 (due to the question, max row/column is 100)
         //due to the top down approach, a pre row and pre column have to be taken into account
         //start point is (1,1) rather than (0,0)
-        int[][] board = new int[100+1][100+1];
+        int[][] board = new int[100 + 1][100 + 1];
 
         //pre set either (0,1) or (1,0) to 1 for assuring (1, 1) is 1
         board[0][1] = 1;
 
-        for (int row = 1; row<m+1; row++){
-            for (int column = 1; column<n+1; column++){
-                board[row][column] = board[row-1][column] + board[row][column-1];
+        for (int row = 1; row < m + 1; row++) {
+            for (int column = 1; column < n + 1; column++) {
+                board[row][column] = board[row - 1][column] + board[row][column - 1];
             }
         }
 
@@ -113,4 +113,4 @@ public class uniquePaths {
     }
 */
 
- }
+}

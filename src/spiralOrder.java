@@ -79,21 +79,21 @@ public class spiralOrder {
             }
             return res;
         } else if (startRow + 1 == (rowLength / 2) && startCol + 1 != (colLength / 2)) {
-                if(rowLength%2==1){
-                    startRow++;
-                    startCol++;
-                    for (int i = startCol; i < colLength - startCol; i++) {
-                        res.add(matrix[startRow][i]);
-                    }
+            if (rowLength % 2 == 1) {
+                startRow++;
+                startCol++;
+                for (int i = startCol; i < colLength - startCol; i++) {
+                    res.add(matrix[startRow][i]);
                 }
+            }
         } else if (startRow + 1 != (rowLength / 2) && startCol + 1 == (colLength / 2)) {
-                if(colLength%2==1){
-                    startRow++;
-                    startCol++;
-                    for (int i = startRow; i < rowLength - startRow; i++) {
-                        res.add(matrix[i][colLength - startCol - 1]);
-                    }
+            if (colLength % 2 == 1) {
+                startRow++;
+                startCol++;
+                for (int i = startRow; i < rowLength - startRow; i++) {
+                    res.add(matrix[i][colLength - startCol - 1]);
                 }
+            }
         } else {
             res.addAll(spiralOrder(startRow + 1, startCol + 1, rowLength, colLength, matrix, new ArrayList<Integer>()));
         }

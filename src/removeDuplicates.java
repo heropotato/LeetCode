@@ -21,22 +21,22 @@ public class removeDuplicates {
 
         int length = A.length;
 
-        if(length < 2){
-            return length==0?0:1;
+        if (length < 2) {
+            return length == 0 ? 0 : 1;
         }
 
         int i = 1;
         int runner = 1;
         //scan the array to find first element which is greater than A[i-1], then set the value to A[i]
         //then move i 1 position further, start scan from i
-        while (runner < A.length){
-             if(A[runner] > A[i-1]){
+        while (runner < A.length) {
+            if (A[runner] > A[i - 1]) {
                 A[i] = A[runner];
                 i++;
-                runner=i;
-             }else {
-                 runner++;
-             }
+                runner = i;
+            } else {
+                runner++;
+            }
         }
         return i;
     }

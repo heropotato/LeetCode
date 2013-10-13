@@ -30,7 +30,7 @@ public class threeSumClosest {
         // DO NOT write main() function
 
         Arrays.sort(num);
-        int res = num[0]+num[1]+num[2];
+        int res = num[0] + num[1] + num[2];
 
         for (int i = 0; i < num.length - 2; i++) {
 
@@ -42,10 +42,10 @@ public class threeSumClosest {
                 int temp = num[i] + num[lPointer] + num[rPointer];
                 if (temp == target) {
                     return target;
-                }else if (temp > target) {
+                } else if (temp > target) {
                     if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
                     rPointer--;
-                }else{
+                } else {
                     if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
                     lPointer++;
                 }

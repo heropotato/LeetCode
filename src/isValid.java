@@ -24,35 +24,35 @@ public class isValid {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if(s.isEmpty()) return true;
-        if(s.length()%2 != 0) return false;
+        if (s.isEmpty()) return true;
+        if (s.length() % 2 != 0) return false;
 
         Stack<Character> stack = new Stack<Character>();
 
-        for(char c:s.toCharArray()){
+        for (char c : s.toCharArray()) {
 
-            switch(c) {
+            switch (c) {
 
                 case ')':
-                    if(stack.empty() || stack.peek() != '(') {
+                    if (stack.empty() || stack.peek() != '(') {
                         return false;
-                    }else{
+                    } else {
                         stack.pop();
                     }
                     break;
 
                 case ']':
-                    if(stack.empty() || stack.peek() != '[') {
+                    if (stack.empty() || stack.peek() != '[') {
                         return false;
-                    }else{
+                    } else {
                         stack.pop();
                     }
                     break;
 
                 case '}':
-                    if(stack.empty() || stack.peek() != '{') {
+                    if (stack.empty() || stack.peek() != '{') {
                         return false;
-                    }else{
+                    } else {
                         stack.pop();
                     }
                     break;
@@ -65,7 +65,7 @@ public class isValid {
 
         }
 
-        return stack.empty()?true:false;
+        return stack.empty() ? true : false;
     }
 
- }
+}

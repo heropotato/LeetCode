@@ -18,17 +18,17 @@ public class intToRoman {
     *
     * */
 
-     public String intToRoman(int num) {
+    public String intToRoman(int num) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        String[] digit = new String[]{"", "I","II","III","IV", "V","VI","VII","VIII","IX"};
-        String[] digit10 = new String[]{"", "X","XX","XXX","XL","L","LX","LXX", "LXXX","XC"};
+        String[] digit = new String[]{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        String[] digit10 = new String[]{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
         String[] digit100 = new String[]{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-        String[] digit1000= new String[] {"", "M", "MM", "MMM"};
+        String[] digit1000 = new String[]{"", "M", "MM", "MMM"};
 
         StringBuffer res = new StringBuffer();
 
-        return res.append(digit1000[num/1000]).append(digit100[num/100%10]).append(digit10[num/10%10]).append(digit[num%10]).toString();
+        return res.append(digit1000[num / 1000]).append(digit100[num / 100 % 10]).append(digit10[num / 10 % 10]).append(digit[num % 10]).toString();
     }
 }

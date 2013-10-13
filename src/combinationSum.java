@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,23 +37,23 @@ public class combinationSum {
 
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         Arrays.sort(candidates);
-        if(candidates.length == 0 || target < candidates[0]) return res;
+        if (candidates.length == 0 || target < candidates[0]) return res;
         combinationSum(candidates, target, new ArrayList<Integer>(), res, 0);
         return res;
     }
 
-    public void combinationSum(int[] candidates, int target, ArrayList<Integer> combination, ArrayList<ArrayList<Integer>> res, int start){
-        if(target == 0){
+    public void combinationSum(int[] candidates, int target, ArrayList<Integer> combination, ArrayList<ArrayList<Integer>> res, int start) {
+        if (target == 0) {
             ArrayList<Integer> t = new ArrayList<Integer>(combination);
-            if(!res.contains(t)) res.add(t);
+            if (!res.contains(t)) res.add(t);
             return;
         }
 
-        for(int i=start; i<candidates.length; i++){
-            if(candidates[i]<=target){
+        for (int i = start; i < candidates.length; i++) {
+            if (candidates[i] <= target) {
                 combination.add(candidates[i]);
-                combinationSum(candidates,target-candidates[i],combination,res,i);
-                combination.remove(combination.size()-1);
+                combinationSum(candidates, target - candidates[i], combination, res, i);
+                combination.remove(combination.size() - 1);
             }
         }
     }

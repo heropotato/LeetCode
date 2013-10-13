@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -123,9 +121,9 @@ public class isMatchWildcard {
         p = removeDuplicateStar.toString();*/
         String[] splitP = p.split("\\*");
         StringBuffer removeDuplicateStar = new StringBuffer();
-        if(p.charAt(0) == '*') removeDuplicateStar.append('*');
-        for(String split:splitP){
-           if(split.length()>0) removeDuplicateStar.append('*').append(split);
+        if (p.charAt(0) == '*') removeDuplicateStar.append('*');
+        for (String split : splitP) {
+            if (split.length() > 0) removeDuplicateStar.append('*').append(split);
         }
         p = removeDuplicateStar.toString();
 

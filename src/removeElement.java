@@ -23,20 +23,20 @@ public class removeElement {
 
         int length = A.length;
 
-        if(length == 0) return 0;
+        if (length == 0) return 0;
 
         int i = 0;
         int runner = 0;
-        length=0;
-        while (runner < A.length){
-            if(A[runner] != elem){
+        length = 0;
+        while (runner < A.length) {
+            if (A[runner] != elem) {
                 int temp = A[i];
                 A[i] = A[runner];
                 A[runner] = temp;
                 i++;
                 runner = i;
                 length++;
-            }else{
+            } else {
                 runner++;
             }
         }

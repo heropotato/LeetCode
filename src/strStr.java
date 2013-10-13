@@ -18,31 +18,31 @@ public class strStr {
     public String strStr(String haystack, String needle) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if(haystack.isEmpty() && needle.isEmpty()){
+        if (haystack.isEmpty() && needle.isEmpty()) {
             return "";
-        }else if((haystack.isEmpty() && !needle.isEmpty()) || (haystack.length() < needle.length())){
+        } else if ((haystack.isEmpty() && !needle.isEmpty()) || (haystack.length() < needle.length())) {
             return null;
-        }else if(!haystack.isEmpty() && needle.isEmpty()){
+        } else if (!haystack.isEmpty() && needle.isEmpty()) {
             return haystack;
-        }else {
+        } else {
 
             char[] h = haystack.toCharArray();
             char[] n = needle.toCharArray();
 
-            for(int i=0; i<haystack.length(); i++){
+            for (int i = 0; i < haystack.length(); i++) {
 
-                if(h[i] == n[0] && (haystack.length() - i) >= needle.length()){
+                if (h[i] == n[0] && (haystack.length() - i) >= needle.length()) {
                     int j = 1;
                     boolean temp = true;
-                    while(j<needle.length()){
-                        if(h[i+j] != n[j]){
+                    while (j < needle.length()) {
+                        if (h[i + j] != n[j]) {
                             temp = false;
                             break;
                         }
                         j++;
                     }
 
-                    if(temp) return haystack.substring(i);
+                    if (temp) return haystack.substring(i);
 
                 }
             }

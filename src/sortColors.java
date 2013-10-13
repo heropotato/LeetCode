@@ -46,10 +46,10 @@ public class sortColors {
         }
     }
 
-    private void sortColors(int[] A, int indexA, int indexB){
-        if(indexA==indexB || A[indexA] == A[indexB]) return;
+    private void sortColors(int[] A, int indexA, int indexB) {
+        if (indexA == indexB || A[indexA] == A[indexB]) return;
         int temp = A[indexA];
         A[indexA] = A[indexB];
         A[indexB] = temp;
     }
- }
+}

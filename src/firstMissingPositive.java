@@ -32,21 +32,21 @@ public class firstMissingPositive {
         //2, according to note 1, each integer and its position should be as A[i] = i+1
         //3, according to the relationship described as note 2, traverse the array and swap integer which is not located corresponding positions
         //4, traverse the swapped array, find out the missing integer
-        int i=0;
-        while(i<A.length){
-            if(A[i]!=i+1 && A[i]>0 && A[i]<A.length && A[i]!=A[A[i]-1]){
+        int i = 0;
+        while (i < A.length) {
+            if (A[i] != i + 1 && A[i] > 0 && A[i] < A.length && A[i] != A[A[i] - 1]) {
                 //swap here:
-                int swap = A[A[i]-1];
-                A[A[i]-1] = A[i];
+                int swap = A[A[i] - 1];
+                A[A[i] - 1] = A[i];
                 A[i] = swap;
-            }else{
+            } else {
                 i++;
             }
         }
 
-        i=0;
-        while (i<A.length && A[i]==i+1) i++;
-        return i+1;
+        i = 0;
+        while (i < A.length && A[i] == i + 1) i++;
+        return i + 1;
     }
 
- }
+}
