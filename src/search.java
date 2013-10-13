@@ -19,6 +19,7 @@ public class search {
     *
     * You may assume no duplicate exists in the array.
     *
+    *
     * */
 
     public int search(int[] A, int target) {
