@@ -15,7 +15,6 @@ public class divide {
     *
     * Divide two integers without using multiplication, division and mod operator.
     *
-    *
     * */
 
     public int divide(int dividend, int divisor) {
