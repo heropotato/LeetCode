@@ -25,15 +25,7 @@ public class removeDuplicatesII {
     *
     * */
 
-    public static void main(String[] args) {
-        int[] test = {1,1,1};
-        System.out.println(removeDuplicates(test));
-        for (int i : test) {
-            System.out.print(i + ", ");
-        }
-    }
-
-    public static int removeDuplicates(int[] A) {
+    public int removeDuplicates(int[] A) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
 
         if (A.length < 3) return A.length;
@@ -57,13 +49,13 @@ public class removeDuplicatesII {
         return res;
     }
 
-    private static void removeDuplicatesSwap(int[] A, int indexA, int indexB) {
+    private void removeDuplicatesSwap(int[] A, int indexA, int indexB) {
         int temp = A[indexA];
         A[indexA] = A[indexB];
         A[indexB] = temp;
     }
 
-    private static void removeDuplicatesAdd(HashMap<Integer, Integer> countsMap, int a){
+    private void removeDuplicatesAdd(HashMap<Integer, Integer> countsMap, int a){
         if(!countsMap.containsKey(a)) countsMap.put(a, 1);
         else countsMap.put(a, countsMap.get(a)+1);
     }
