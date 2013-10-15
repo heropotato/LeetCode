@@ -21,7 +21,7 @@ public class searchII {
     *
     *
     * */
-
+/*
     public boolean search(int[] A, int target) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         if(A.length == 0) return false;
@@ -33,4 +33,6 @@ public class searchII {
     private int search(int[] A, int target, int startIndex, int endIndex) {
 
     }
+
+    */
 }

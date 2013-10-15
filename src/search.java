@@ -26,44 +26,34 @@ public class search {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if (A.length < 1) return -1;
-        int first = A[0];
-        int last = A[A.length - 1];
+        if (A.length == 0) return -1;
+        if (A.length == 1) return (A[0] == target ? 0 : -1);
 
-        if (last > first) {
-            if (target < first || target > last) return -1;
-            if (Math.abs(target - first) > Math.abs(target - last)) {
-                int i = A.length - 1;
-                while (i >= 0) {
-                    if (A[i] == target) return i;
-                    i--;
-                }
-                return -1;
-            } else {
-                int i = 0;
-                while (i < A.length) {
-                    if (A[i] == target) return i;
-                    i++;
-                }
-                return -1;
-            }
-        } else {
-            if (target >= first) {
-                int i = 0;
-                while (i < A.length) {
-                    if (A[i] == target) return i;
-                    i++;
-                }
-                return -1;
+        int startIndex = 0;
+        int endIndex = A.length - 1;
 
-            } else {
-                int i = A.length - 1;
-                while (i >= 0) {
-                    if (A[i] == target) return i;
-                    i--;
+        while (startIndex <= endIndex) {
+            int tempPosition = (startIndex + endIndex) / 2;
+
+            if (target < A[tempPosition]) {
+                if (A[tempPosition] < A[endIndex])
+                    endIndex = tempPosition - 1;
+                else {
+                    if (target > A[endIndex])
+                        endIndex = tempPosition - 1; //due to the rotated list, if target > A[tempPosition] && target > A[endIndex], then target is supposed to be among 1st half of the list
+                    else startIndex = tempPosition + 1;
                 }
-                return -1;
+            } else if (target > A[tempPosition]) {
+                if (A[tempPosition] < A[endIndex]) {
+                    if (target > A[endIndex]) endIndex = tempPosition - 1;
+                    else startIndex = tempPosition + 1;
+                } else {
+                    startIndex = tempPosition + 1;
+                }
+            } else {
+                return tempPosition;
             }
         }
+        return -1;
     }
 }
