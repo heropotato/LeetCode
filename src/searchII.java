@@ -21,18 +21,15 @@ public class searchII {
     *
     *
     * */
-/*
+
     public boolean search(int[] A, int target) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
-        if(A.length == 0) return false;
+        if (A.length == 0) return false;
 
+        for (int i:A){
+            if (i == target) return true;
+        }
 
-
+        return false;
     }
-
-    private int search(int[] A, int target, int startIndex, int endIndex) {
-
-    }
-
-    */
 }
