@@ -19,6 +19,12 @@ public class maximalRectangle {
 
     public int maximalRectangle(char[][] matrix) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
+
+        // get inspired from https://github.com/samuel890/leetcode/blob/master/MaximalRectangle.java
+        // basically consider each row as a histogram,
+        // considering the bar height, count the '1' from bottom up, number of '1' coherently existed at the same column will record as height
+        // for each row, calculate largest rectangle area and record the largest one
+
         if (matrix.length == 0) return 0;
         int[][] intMatrix = new int[matrix.length][matrix[0].length];
 
