@@ -63,7 +63,7 @@ public class isScramble {
 
     private boolean isScramble(String s1, String s2, Hashtable<String, Boolean> booleanHistory) {
         String temp;
-        if (s1.compareTo(s2) > 0) temp = s1 + s2;
+        if (s1.compareTo(s2) > 0) temp = s1 + s2;//use String.compareTo() record compared string with avoiding duplicates
         else temp = s2 + s1;
 
         if (booleanHistory.containsKey(temp))
@@ -76,8 +76,8 @@ public class isScramble {
             }
 
             if (length == 1) {
-                booleanHistory.put(temp, s1.charAt(0) == s2.charAt(0));
-                return s1.charAt(0) == s2.charAt(0);
+                booleanHistory.put(temp, s1.equals(s2));
+                return s1.equals(s2);
             }
 
             if (s1.equals(s2)) {
@@ -99,7 +99,5 @@ public class isScramble {
             booleanHistory.put(temp, false);
             return false;
         }
-
     }
-
 }
