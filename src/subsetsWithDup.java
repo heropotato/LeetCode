@@ -55,7 +55,7 @@ public class subsetsWithDup {
 
         if (currentCombination.size() == length) {
             ArrayList<Integer> temp = new ArrayList<Integer>(currentCombination);
-            if(noDup.add(temp)) res.add(temp);
+            if (noDup.add(temp)) res.add(temp);
         }
 
         for (int i = startIndex; i < S.length; i++) {
@@ -66,4 +66,4 @@ public class subsetsWithDup {
 
     }
 
- }
+}
