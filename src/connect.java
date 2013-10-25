@@ -42,6 +42,7 @@ public class connect {
     *  4->5->6->7 -> NULL
     *
     *
+    *
     * */
 
     public void connect(TreeLinkNode root) {
