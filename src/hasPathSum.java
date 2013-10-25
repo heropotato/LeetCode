@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -30,24 +32,30 @@ public class hasPathSum {
 
     public boolean hasPathSum(TreeNode root, int sum) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
-        if (root==null) return false;
-        if (root.left ==null&&root.right==null){
-            return root.val == sum;
-        }else if (root.left == null){
-            return hasPathSum(root.right, sum, root.val);
-        }else if (root.right == null){
-            return hasPathSum(root.left, sum, root.val);
-        }else {
-            return hasPathSum(root.left, sum, root.val) || hasPathSum(root.right, sum, root.val);
+
+        if (root == null) return false;
+
+        Stack<TreeNode> nodeStack = new Stack<TreeNode>();
+        Stack<Integer> currentSumStack = new Stack<Integer>();
+        nodeStack.add(root);
+        currentSumStack.add(root.val);
+
+        while (!nodeStack.isEmpty()) {
+            TreeNode node = nodeStack.pop();
+            Integer currentSum = currentSumStack.pop();
+            if (node.left == null && node.right == null && currentSum == sum) return true;
+
+            if (node.right != null) {
+                nodeStack.add(node.right);
+                currentSumStack.add(currentSum + node.right.val);
+            }
+
+            if (node.left != null) {
+                nodeStack.add(node.left);
+                currentSumStack.add(currentSum + node.left.val);
+            }
         }
+        return false;
     }
 
-    public boolean hasPathSum(TreeNode root, int sum, int currentSum){
-        if (root == null) return currentSum==sum;
-        currentSum += root.val;
-        if (currentSum>sum) return false;
-        if (root.left == null && root.right == null) return currentSum == sum;
-        return hasPathSum(root.left, sum, currentSum) || hasPathSum(root.right, sum, currentSum);
-    }
-
- }
+}
