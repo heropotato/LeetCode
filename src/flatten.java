@@ -48,6 +48,17 @@ public class flatten {
 
     public void flatten(TreeNode root) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
+
+        // recursion solution:
+        // (One helper function finding the right furthest node of current node)
+        // considering the question, target is flat all left subtrees to right
+        // if current node has no left sub node, then simply flatten the right sub node
+        // otherwise,
+        // find the furthest right node (furNode) of the left sub tree,
+        // merge the left sub tree to replace the current right sub node
+        // and attach the original right sub node to the furNode
+        // flatten the right sub node
+
         if (root == null || (root.left == null && root.right == null)) return;
         if (root.left != null) {
             TreeNode tmp = root.right;
