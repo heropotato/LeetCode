@@ -1,3 +1,5 @@
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -35,6 +37,8 @@ public class connect {
     *
     * After calling your function, the tree should look like:
     *
+    *
+    *
     *       1 -> NULL
     *     /  \
     *    2 -> 3 -> NULL
@@ -48,6 +52,22 @@ public class connect {
     public void connect(TreeLinkNode root) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
 
+        if (root == null) return;
+
+        LinkedBlockingQueue<TreeLinkNode> queue = new LinkedBlockingQueue<TreeLinkNode>();
+        LinkedBlockingQueue<TreeLinkNode> levelQueue = new LinkedBlockingQueue<TreeLinkNode>();
+
+        while (root != null) {
+            if (queue.isEmpty()) root.next = null;
+            root.next = queue.peek();
+            if (root.left != null) levelQueue.offer(root.left);
+            if (root.right != null) levelQueue.offer(root.right);
+            if (queue.isEmpty()) {
+                queue = levelQueue;
+                levelQueue = new LinkedBlockingQueue<TreeLinkNode>();
+            }
+            root = queue.poll();
+        }
     }
 
- }
+}
