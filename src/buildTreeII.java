@@ -17,7 +17,6 @@ public class buildTreeII {
     * Note:
     * You may assume that duplicates do not exist in the tree.
     *
-    *
     * */
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
