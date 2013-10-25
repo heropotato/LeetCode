@@ -31,14 +31,22 @@ public class hasPathSum {
     public boolean hasPathSum(TreeNode root, int sum) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         if (root==null) return false;
-
-        return hasPathSum(root.left, sum, root.val) || hasPathSum(root.right, sum, root.val);
+        if (root.left ==null&&root.right==null){
+            return root.val == sum;
+        }else if (root.left == null){
+            return hasPathSum(root.right, sum, root.val);
+        }else if (root.right == null){
+            return hasPathSum(root.left, sum, root.val);
+        }else {
+            return hasPathSum(root.left, sum, root.val) || hasPathSum(root.right, sum, root.val);
+        }
     }
 
     public boolean hasPathSum(TreeNode root, int sum, int currentSum){
         if (root == null) return currentSum==sum;
         currentSum += root.val;
         if (currentSum>sum) return false;
+        if (root.left == null && root.right == null) return currentSum == sum;
         return hasPathSum(root.left, sum, currentSum) || hasPathSum(root.right, sum, currentSum);
     }
 
