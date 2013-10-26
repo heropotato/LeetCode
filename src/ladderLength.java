@@ -36,7 +36,7 @@ public class ladderLength {
     *
     * */
 
-    public int ladderLength(String start, String end, HashSet<String> dict) {
+     public int ladderLength(String start, String end, HashSet<String> dict) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         // get inspired from http://mattcb.blogspot.com/2013/02/word-ladder.html
 
