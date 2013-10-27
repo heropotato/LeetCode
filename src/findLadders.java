@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -38,11 +39,11 @@ public class findLadders {
     *
     * */
 
+
     public ArrayList<ArrayList<String>> findLadders(String start, String end, HashSet<String> dict) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
 
         // get inspired from http://discuss.leetcode.com/questions/1051/word-ladder-ii/2468
-
 
         // method would be similar, except that, we need to store the path
         // in addition, if we get the result, we didn't stop until we finish
@@ -50,11 +51,13 @@ public class findLadders {
         // visited map the string to the list of its ancestor
         HashMap<String, HashSet<String>> visited = new HashMap<String, HashSet<String>>();
         HashMap<String, Integer> level = new HashMap<String, Integer>();
-        LinkedList<String> queue = new LinkedList<String>();
+        LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>();
         ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+
         if (start == null || end == null || start.length() != end.length()) {
             return result;
         }
+
         // we also need to store the path from the start
         HashSet<String> path = new HashSet<String>();
         // we record the minimal length we get
@@ -63,7 +66,7 @@ public class findLadders {
         level.put(start, 1);
         queue.add(start);
         while (!queue.isEmpty()) {
-            String s = queue.remove();
+            String s = queue.poll();
             char[] chars = s.toCharArray();
             for (int i = 0; i < s.length(); i++) {
                 char old = chars[i];
