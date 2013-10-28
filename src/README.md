@@ -3,11 +3,11 @@ Solution details
 ### Essential classes
 Two essential java classes have been pre-defined(`ListNode`, `TreeNode`, `Interval`, `TreeLinkNode`, and `UndirectedGraphNode`):
 
-* `ListNode`: definition for singly linked list..
-* `TreeNode`: definition for binary tree..
+* `ListNode`: definition for singly linked list.
+* `TreeNode`: definition for binary tree.
 * `Interval`: definition for interval.
 * `TreeLinkNode`: definition for binary tree with next point.
-* `UndirectedGraphNode`: definition for undirected graph
+* `UndirectedGraphNode`: definition for undirected graph.
 
 ### Naming references
 Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judge][].
