@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Time: 6:06 PM
  * To change this template use File | Settings | File Templates.
  */
-public class UndirectedGraphNodeI {
+public class cloneGraph {
 
     /*
     *
@@ -62,8 +62,9 @@ public class UndirectedGraphNodeI {
 
         // get inspired from http://jane4532.blogspot.com/2013/09/clone-graphleetcode.html
         // BFS solution:
-        // a basic BFS solution, in addition, create a HashMap<UndirectedGraphNode, UndirectedGraphNode> to track visited node for avoiding infinite loop scenarios
-        // offer new node into the queue only when it dose NOT exist in HashMap
+        // a basic BFS solution, in addition, create a HashMap<UndirectedGraphNode, UndirectedGraphNode> mapping 'originalNode' to 'copiedNode'
+        // offer new node into the queue only when its corresponding 'originalNode' dose NOT exist in HashMap
+
         if (node == null) return null;
         LinkedBlockingQueue<UndirectedGraphNode> queue = new LinkedBlockingQueue<UndirectedGraphNode>();
         queue.offer(node);
