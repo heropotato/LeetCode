@@ -35,6 +35,9 @@ public class copyRandomList {
 
         // BFS solution:
         // Quite similar to the question "Clone Graph"
+        //
+        // a basic BFS solution, in addition, create a HashMap<UndirectedGraphNode, UndirectedGraphNode> mapping 'originalNode' to 'copiedNode'
+        // offer new node into the queue only when its corresponding 'originalNode' dose NOT exist in HashMap
 
         if (head == null) return null;
 
