@@ -1,7 +1,7 @@
 Solution details
 ----------------
 ### Essential classes
-Six essential java classes:
+Six essential java classes (`ListNode`, `TreeNode`, `Interval`, `TreeLinkNode`, `UndirectedGraphNode`, and `RandomListNode`):
 
 * `ListNode`: definition for singly linked list.
 * `TreeNode`: definition for binary tree.
