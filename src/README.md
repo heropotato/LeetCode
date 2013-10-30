@@ -11,5 +11,5 @@ Two essential java classes have been pre-defined(`ListNode`, `TreeNode`, `Interv
 * `RandomListNode`: definition for singly-linked list with a random pointer.
 
 ### Naming references
-Each class is called a name, standing for easy-to-find, which is exactly same against names on [LeetCode Online Judge][].
+Each class is called a name standing for easy-to-find against [LeetCode Online Judge][] rather than the default "Solution".
 [LeetCode Online Judge]: http://oj.leetcode.com/problems/
