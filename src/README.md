@@ -3,9 +3,9 @@ Solution details
 ### Essential classes
 Six essential java classes (`ListNode`, `TreeNode`, `Interval`, `TreeLinkNode`, `UndirectedGraphNode`, and `RandomListNode`):
 
-* `ListNode`: definition for singly linked list.
+* `ListNode`: definition for singly-linked list.
 * `TreeNode`: definition for binary tree.
-* `Interval`: definition for interval.
+* `Interval`: definition for an interval.
 * `TreeLinkNode`: definition for binary tree with next point.
 * `UndirectedGraphNode`: definition for undirected graph.
 * `RandomListNode`: definition for singly-linked list with a random pointer.
