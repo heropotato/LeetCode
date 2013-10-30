@@ -59,16 +59,17 @@ public class wordBreakII {
 
     private static void wordBreak(String s, Set<String> dict, ArrayList<String> result, boolean[][] board, int start, int length, int depth, StringBuffer curSentence) {
         if (depth == length) {
-            result.add(curSentence.toString().substring(0, curSentence.toString().length() - 1));
+            result.add(curSentence.toString());
             return;
         }
 
         for (int len = 1; len <= length; len++) {
             if (board[start][len]) {
-                String t = s.substring(start, start + len);
-                if (!dict.contains(t)) continue;
+                String word = s.substring(start, start + len);
+                if (!dict.contains(word)) continue;
                 int curLen = curSentence.length();
-                curSentence.append(t).append(" ");
+                if (curLen == 0) curSentence.append(word);
+                else curSentence.append(" ").append(word);
                 wordBreak(s, dict, result, board, start + len, length, start + len, curSentence);
                 curSentence.delete(curLen, curSentence.length());
             }
