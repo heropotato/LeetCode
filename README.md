@@ -10,9 +10,6 @@ Check the `src` folder for source code details.
 ### Issues
 In case of issues or bugs, please [reach out][] without any hesitation.
 
-### about me
-Find out more about me in person via [my blog][].
-
 [LeetCode Online Judge]: http://oj.leetcode.com/
 [reach out]: mailto:dev.yongwen@gmail.com
 [my blog]: http://blog.heropotato.com/
