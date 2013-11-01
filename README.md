@@ -5,12 +5,8 @@ LeetCode online judge is considered as an effective way of preparing technically
 
 Check the `src` folder for source code details.
 
-[IntelliJ IDEA][] is used for creating, implementing and polishing this project.
-
 ### Issues
 In case of issues or bugs, please [reach out][] without any hesitation.
 
 [LeetCode Online Judge]: http://oj.leetcode.com/
 [reach out]: mailto:dev.yongwen@gmail.com
-[my blog]: http://blog.heropotato.com/
-[IntelliJ IDEA]: http://www.jetbrains.com/idea/
