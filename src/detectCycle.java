@@ -28,25 +28,21 @@ public class detectCycle {
         // let the slow runner run in the cycle (start from and end in fast runner position),
         // for each round, if slow runner meets the third runner, then the position is where cycle starts
         // otherwise, the third runner move forward one step, and let slow runner run another round.
-        ListNode runnerS = head, runnerF = head;
-        boolean existCycle = false;
+        ListNode runS = head, runF = head;
 
-        while (runnerS != null && runnerF != null) {
-            runnerS = runnerS.next;
-            if (runnerF.next != null) runnerF = runnerF.next.next;
+        while (runS != null && runF != null) {
+            runS = runS.next;
+            if (runF.next != null) runF = runF.next.next;
             else return null;
-            if (runnerS == runnerF) {
-                existCycle = true;
-                break;
-            }
+            if (runS == runF) break;
         }
-        if (!existCycle) return null;
+        if (runS!=runF) return runF;
 
-        ListNode runnerStartCycle = head;
-        while (true) {
-            if (runnerS == runnerStartCycle) return runnerStartCycle;
-            if (runnerS.next == runnerF) runnerStartCycle = runnerStartCycle.next;
-            runnerS = runnerS.next;
+        ListNode startCycle = head;
+        while (runS != startCycle) {
+            if (runS.next == runF) startCycle = startCycle.next;
+            runS = runS.next;
         }
+        return startCycle;
     }
 }
