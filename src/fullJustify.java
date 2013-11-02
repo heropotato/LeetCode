@@ -43,77 +43,79 @@ public class fullJustify {
     public ArrayList<String> fullJustify(String[] words, int L) {
         // Start typing your Java solution below
         // DO NOT write main() function
-
         ArrayList<String> res = new ArrayList<String>();
-        ArrayDeque<String> pool = new ArrayDeque<String>();
-        int poolSize = 0;
-        for (String word : words) {
-            int pad = pool.size() == 0 ? 0 : 1;
-            if (word.length() + pad + poolSize > L) {
-                //pool release
-                fullJustifyRelease(L, poolSize, pool, res, false);
-                poolSize = word.length();
+        if (words.length == 0) return res;
+
+        ArrayList<String> curRow = new ArrayList<String>();
+        int i = 0, currentLength = 0;
+        while (i<words.length) {
+            if (currentLength == 0) {
+                curRow.add(words[i]);
+                currentLength += words[i].length();
+                i++;
+                continue;
             }
-            if (pool.size() == 0) {
-                poolSize = word.length();
+            if (currentLength + words[i].length() + 1 <= L) {
+                curRow.add(words[i]);
+                currentLength += words[i].length() + 1;
+                i++;
             } else {
-                poolSize += 1 + word.length();
+                res.add(fullJustify(curRow, L - currentLength, L));
+                currentLength = 0;
+                curRow = new ArrayList<String>();
             }
-            pool.offer(word);
         }
-        if (!pool.isEmpty()) {
-            fullJustifyRelease(L, poolSize, pool, res, true);
+        StringBuffer lastLine = new StringBuffer("");
+        for (String string:curRow){
+            if (lastLine.length() == 0) lastLine.append(string);
+            else lastLine.append(" ").append(string);
         }
+        addPad(lastLine, L-lastLine.length());
+        res.add(lastLine.toString());
         return res;
     }
 
-    public void fullJustifyRelease(int L, int poolSize, ArrayDeque<String> pool, ArrayList<String> res, boolean lastLine) {
+    private String fullJustify(ArrayList<String> strings, int padding, int L) {
 
-        if (lastLine) {
-            StringBuffer temp = new StringBuffer("");
-            while (!pool.isEmpty()) {
-                if (temp.length() != 0) temp.append(" ");
-                temp.append(pool.poll());
-            }
-            if (L - temp.length() > 0) temp.append(String.format("%1$" + (L - temp.length()) + "s", ""));
-            res.add(temp.toString());
-            return;
+        if (strings.size() == 1){
+            StringBuffer temp = new StringBuffer(strings.get(0));
+            addPad(temp, L-temp.length());
+            return temp.toString();
         }
-        int spaceLots = pool.size() - 1;
-        int spaces = L - (poolSize - spaceLots);
         StringBuffer temp = new StringBuffer("");
-        if (spaceLots == 0) {
-            temp.append(pool.poll());
-            if (L - temp.length() > 0) temp.append(String.format("%1$" + (L - temp.length()) + "s", ""));
-            res.add(temp.toString());
+        if (padding == 0) {
+            for (String string : strings) {
+                if (temp.length() == 0) {
+                    temp.append(string);
+                    continue;
+                }
+                temp.append(" ").append(string);
+            }
         } else {
-            int times = spaces / spaceLots;
-            if (spaces % spaceLots == 0) {
-                while (!pool.isEmpty()) {
-                    if (temp.length() == 0) {
-                        temp.append(pool.poll());
-                        continue;
-                    }
-                    temp.append(String.format("%1$" + times + "s", ""));
-                    temp.append(pool.poll());
+            int addPad = padding / (strings.size() - 1);
+            int extraPad = padding % (strings.size() - 1);
+            for (int i = 0; i < strings.size(); i++) {
+                if (i==0){
+                    temp.append(strings.get(i));
+                    continue;
                 }
-                res.add(temp.toString());
-            } else {
-                int extraSpaces = spaces % spaceLots;
-                while (!pool.isEmpty()) {
-                    if (temp.length() == 0) {
-                        temp.append(pool.poll());
-                        continue;
-                    }
-                    temp.append(String.format("%1$" + times + "s", ""));
-                    if (extraSpaces > 0) {
-                        temp.append(" ");
-                        extraSpaces--;
-                    }
-                    temp.append(pool.poll());
-                }
-                res.add(temp.toString());
+                temp.append(" ");
+                addPad(temp, addPad);
+                if (extraPad > 0) temp.append(" ");
+                temp.append(strings.get(i));
+                extraPad--;
             }
         }
+
+        return temp.toString();
     }
+
+    private StringBuffer addPad(StringBuffer stringBuffer, int padding) {
+        while (padding > 0) {
+            stringBuffer.append(" ");
+            padding--;
+        }
+        return stringBuffer;
+    }
+
 }
