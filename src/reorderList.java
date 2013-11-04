@@ -46,12 +46,12 @@ public class reorderList {
         current = end.next;
         end.next = null;
 
-        ListNode sufRunner = reverseList(current);
+        reverseList(current);
         ListNode preRunner = head;
 
-        while (sufRunner != null) {
-            ListNode add = sufRunner;
-            sufRunner = sufRunner.next;
+        while (current != null) {
+            ListNode add = current;
+            current = current.next;
 
             ListNode addTo = preRunner;
             preRunner = preRunner.next;
