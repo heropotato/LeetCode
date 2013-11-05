@@ -36,7 +36,7 @@ public class reorderList {
         while (current != null) {
             length++;
             current = current.next;
-            if (length - preLength == 2){
+            if (length - preLength == 2) {
                 preLength = length;
                 end = end.next;
             }
@@ -46,12 +46,12 @@ public class reorderList {
         current = end.next;
         end.next = null;
 
-        reverseList(current);
+        ListNode sufRunner = reverseList(current);
         ListNode preRunner = head;
 
-        while (current != null) {
-            ListNode add = current;
-            current = current.next;
+        while (sufRunner != null) {
+            ListNode add = sufRunner;
+            sufRunner = sufRunner.next;
 
             ListNode addTo = preRunner;
             preRunner = preRunner.next;
