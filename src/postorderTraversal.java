@@ -58,6 +58,16 @@ public class postorderTraversal {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         // DFS based solution
+        // Quite similar to the previous question: preorderTraversal
+        // when doing preorderTraversal:
+        // root --> left --> right
+        // due to DFS by Stack<TreeNode>, scan root, then push right, then push left (LILO for Stack)
+        // for this question:
+        // when doing postorderTraversal:
+        // left --> right --> root
+        // due to DFS, scan root, push left, then push right,
+        // in this case, we get the reversed result of traversal, then simply reverse the complete result and return it
+
         ArrayList<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> nodeStack = new Stack<TreeNode>();
         if (root != null) nodeStack.push(root);
