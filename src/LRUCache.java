@@ -24,13 +24,9 @@ public class LRUCache {
     *
     * */
 
-    // according to the question, once the Cache reached its capacity,
-    // "it should invalidate the least recently used item".
-    // In other words, it is similar to "F-I-F-O".
-    // Use a LinkedHashMap properly
-    // In case of no element has been get(int key) yet, the release order should be "F-I-F-O",
-    // Once an element has been get(int key), then it has to be considered as "most recently used"
-    // In this case, we have to modify its position in the queue
+    // according to the question, how the cache work is similar to "F-I-F-O".
+    // considering the key --> value, choose LinkedHashMap (keeping insertion order)
+    // each time set/get the key existed in the cache, it has to be re-inserted to let it be the most recently used
 
     LinkedHashMap<Integer, Integer> cache;
     final int capacity;
