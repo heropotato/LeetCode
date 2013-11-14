@@ -22,47 +22,34 @@ public class longestPalindrome {
     public String longestPalindrome(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (s.length() == 0) {
-            return "";
-        }
 
-        if (s.length() == 1) {
-            return s;
-        }
+        // Pretty straightforward solution:
+        // If s.length() < 2, then return "" if s.isisEmpty(), otherwise return s
+        // Iterate s from indexes [0, s.length-2],
+        // Tricky part: for each position, we have to consider two cases: aabbcbbaa and aabbaa
+        // Track the longest result, and return it
+
+        if (s.length()<2) return s.isEmpty() ? "" : s;
 
         String result = s.substring(0, 1);
 
         for (int i = 0; i < s.length() - 1; i++) {
-
             String temp1 = resultFind(s, i, i);
-
-            if (temp1.length() > result.length()) {
-                result = temp1;
-            }
+            if (temp1.length() > result.length()) result = temp1;
 
             String temp2 = resultFind(s, i, i + 1);
-
-
-            if (temp2.length() > result.length()) {
-                result = temp2;
-            }
+            if (temp2.length() > result.length()) result = temp2;
         }
-
         return result;
     }
 
     public String resultFind(String s, int l, int r) {
 
-        int leftStep = l;
-        int rightStep = r;
-
-        while (leftStep > -1 && rightStep < s.length() && s.charAt(leftStep) == s.charAt(rightStep)) {
-
-            leftStep = leftStep - 1;
-            rightStep = rightStep + 1;
-
+        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
+            l--;
+            r++;
         }
 
-        return s.substring(leftStep + 1, rightStep);
+        return s.substring(l + 1, r);
     }
 }
