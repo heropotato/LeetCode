@@ -24,6 +24,30 @@ public class addTwoNumbers {
     * */
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        StringBuilder a = new StringBuilder();
+        StringBuilder b = new StringBuilder();
+        while (l1!=null){
+            a.append(l1.val);
+            l1 = l1.next;
+        }
+        while (l2!=null){
+            b.append(l2.val);
+            l2 = l2.next;
+        }
+
+        long sum = Long.valueOf(a.reverse().toString()) + Long.valueOf(b.reverse().toString());
+        a = new StringBuilder();
+        ListNode res = new ListNode(1);
+        ListNode runner = res;
+        for (char c:  a.append(sum).reverse().toString().toCharArray()){
+            runner.next = new ListNode(Character.getNumericValue(c));
+            runner = runner.next;
+        }
+        return res.next;
+    }
+
+    /*
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // Start typing your Java solution below
         // DO NOT write main() function
         return parseLinkedList(parseNumber(l1) + parseNumber(l2));
@@ -55,5 +79,5 @@ public class addTwoNumbers {
         }
 
         return result;
-    }
+    }*/
 }
