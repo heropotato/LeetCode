@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -27,29 +28,20 @@ public class lengthOfLongestSubstring {
 
         for (int i = 0; i < s.length(); i++) {
 
-            HashMap<Character, Character> maps = new HashMap<Character, Character>();
+            ArrayList<Character> path = new ArrayList<Character>();
+            int currentLength = 0;
 
-            int tempLength = 0;
-
-            for (int c = 1; c < s.length() - i + 1; c++) {
-
-                char tempKey = s.substring(i, c + i).toCharArray()[c - 1];
-
-                if (!maps.containsKey(tempKey)) {
-                    maps.put(tempKey, tempKey);
-                    tempLength = tempLength + 1;
-                } else {
-                    break;
+            for (int c = i; c < s.length(); c++) {
+                char current = s.charAt(c);
+                if (path.contains(current)) break;
+                else {
+                    path.add(current);
+                    currentLength++;
                 }
-
-                if (tempLength > longestLength) {
-                    longestLength = tempLength;
-                }
-
+                if (currentLength>longestLength) longestLength = currentLength;
             }
 
         }
-
         return longestLength;
     }
 }
