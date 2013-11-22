@@ -13,5 +13,4 @@ Seven essential java classes have been predefined (`ListNode`, `TreeNode`, `Inte
 
 ### Naming references
 Each class is called a name standing for easy-to-find against [LeetCode Online Judge][] rather than the default "Solution".
-
 [LeetCode Online Judge]: http://oj.leetcode.com/problems/
