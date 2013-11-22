@@ -38,10 +38,10 @@ public class maxPoints {
         HashMap<Double, Integer> counts = new HashMap<Double, Integer>();
         for (int i = 0; i < points.length; i++) {
             counts.clear();
-            int vertical = 0, horizon = 0, same = 0;
+            int vertical = 0, horizon = 0, duplicate = 0;
             for (int j = i; j < points.length; j++) {
                 if (points[j].y == points[i].y && points[j].x == points[i].x) {
-                    same++;
+                    duplicate++;
                 } else {
                     if (points[j].x == points[i].x){
                         vertical++;
@@ -54,9 +54,9 @@ public class maxPoints {
                     }
                 }
             }
-            for (Integer count : counts.values()) if (count + same> res) res = count + same;
-            if (vertical + same> res) res = vertical + same;
-            if (horizon + same > res) res = horizon + same;
+            for (Integer count : counts.values()) if (count + duplicate> res) res = count + duplicate;
+            if (vertical + duplicate> res) res = vertical + duplicate;
+            if (horizon + duplicate > res) res = horizon + duplicate;
         }
         return res;
     }
