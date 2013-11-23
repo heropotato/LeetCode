@@ -53,7 +53,7 @@ public class maxPoints {
             }
             for (Integer slope : slopeCounts.values()) if (slope + sameRoot > res) res = slope + sameRoot;
             if (vertical + sameRoot > res || horizon + sameRoot > res)
-                res = Math.max(vertical + sameRoot, horizon + sameRoot);
+                res = vertical + sameRoot>horizon + sameRoot?vertical + sameRoot:horizon + sameRoot;
         }
         return res;
     }
