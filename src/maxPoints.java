@@ -30,33 +30,30 @@ public class maxPoints {
 
         // Pretty straightforward:
         // iterate points array, for each point, calculate each right-hand side point in manner of slope,
-        // then use HashMap<Double, Integer> to count points has the same slope against current point
-        // calculate slope is a little tricky, use double properly as primitive data type
+        // then use HashMap<Double, Integer> to count all points on a line, which start from the root point with the same slope
+        // track slope values is a little tricky, use double primitive data type properly
 
-        if (points.length == 0) return 0;
         int res = 0;
-        HashMap<Double, Integer> counts = new HashMap<Double, Integer>();
+        HashMap<Double, Integer> slopeCounts = new HashMap<Double, Integer>();
         for (int i = 0; i < points.length; i++) {
-            counts.clear();
-            int vertical = 0, horizon = 0, duplicate = 0;
+            slopeCounts.clear();
+            int vertical = 0, horizon = 0, sameRoot = 0;
             for (int j = i; j < points.length; j++) {
                 if (points[j].y == points[i].y && points[j].x == points[i].x) {
-                    duplicate++;
+                    sameRoot++;
                 } else {
-                    if (points[j].x == points[i].x){
-                        vertical++;
-                    }else if (points[j].y == points[i].y){
-                        horizon++;
-                    } else {
-                        Double slope = ((double) (points[j].y - points[i].y)) / ((double) (points[j].x - points[i].x));
-                        if (counts.containsKey(slope)) counts.put(slope, counts.get(slope) + 1);
-                        else counts.put(slope, 1);
+                    if (points[j].x == points[i].x) vertical++;
+                    else if (points[j].y == points[i].y) horizon++;
+                    else {
+                        double slope = ((double) (points[j].y - points[i].y)) / ((double) (points[j].x - points[i].x));
+                        if (slopeCounts.containsKey(slope)) slopeCounts.put(slope, slopeCounts.get(slope) + 1);
+                        else slopeCounts.put(slope, 1);
                     }
                 }
             }
-            for (Integer count : counts.values()) if (count + duplicate> res) res = count + duplicate;
-            if (vertical + duplicate> res) res = vertical + duplicate;
-            if (horizon + duplicate > res) res = horizon + duplicate;
+            for (Integer slope : slopeCounts.values()) if (slope + sameRoot > res) res = slope + sameRoot;
+            if (vertical + sameRoot > res || horizon + sameRoot > res)
+                res = Math.max(vertical + sameRoot, horizon + sameRoot);
         }
         return res;
     }
