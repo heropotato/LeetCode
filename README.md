@@ -21,3 +21,7 @@ In case of issues or bugs, please [reach out][] without any hesitation.
             ga('send', 'pageview');
 
 </script>
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/heropotato/leetcode/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
