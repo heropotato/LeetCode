@@ -10,6 +10,5 @@ In case of issues or bugs, please [reach out][] without any hesitation.
 
 [LeetCode Online Judge]: http://oj.leetcode.com/
 [reach out]: mailto:dev.yongwen@gmail.com
-
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/heropotato/leetcode/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
