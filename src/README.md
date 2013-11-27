@@ -12,6 +12,6 @@ Seven essential java classes have been predefined (`ListNode`, `TreeNode`, `Inte
 * `Point`: definition for a point.
 
 ### Naming references
-Each class is called a name against [LeetCode Online Judge][] rather than the default "Solution" for easy-to-find purposes.
+Each solution (class) is called a name against [LeetCode Online Judge][] rather than the default "Solution" for easy-to-find purposes.
 [LeetCode Online Judge]: http://oj.leetcode.com/problems/
 
