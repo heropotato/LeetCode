@@ -27,14 +27,13 @@ public class twoSum {
 
         int[] res = new int[2];
         HashMap<Integer, Integer> path = new HashMap<Integer, Integer>();
-        for(int i = 0; i<numbers.length; i++){
-            if(path.containsKey(target - numbers[i])){
-                res[0] = path.get(target-numbers[i]);
-                res[1] = i+1;
+        for (int i = 0; i < numbers.length; i++) {
+            if (path.containsKey(target - numbers[i])) {
+                res[0] = path.get(target - numbers[i]);
+                res[1] = i + 1;
                 break;
-            }else{
-                path.put(numbers[i], i+1);
             }
+            path.put(numbers[i], i + 1);
         }
         return res;
     }
