@@ -25,32 +25,17 @@ public class twoSum {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        int[] result = new int[2];
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-
-        for (int i = 0; i < numbers.length; i++) {
-
-            Integer diff = target - numbers[i];
-
-            if (map.containsKey(diff)) {
-
-                int temp = map.get(diff);
-
-                if (i < temp) {
-                    result[0] = i + 1;
-                    result[1] = temp + 1;
-                } else {
-                    result[0] = temp + 1;
-                    result[1] = i + 1;
-                }
+        int[] res = new int[2];
+        HashMap<Integer, Integer> path = new HashMap<Integer, Integer>();
+        for(int i = 0; i<numbers.length; i++){
+            if(path.containsKey(target - numbers[i])){
+                res[0] = path.get(target-numbers[i]);
+                res[1] = i+1;
                 break;
+            }else{
+                path.put(numbers[i], i+1);
             }
-
-            if (!map.containsKey(numbers[i])) {
-                map.put(numbers[i], i);
-            }
-
         }
-        return result;
+        return res;
     }
 }
