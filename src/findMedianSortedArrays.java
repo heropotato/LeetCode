@@ -16,18 +16,15 @@ public class findMedianSortedArrays {
     public double findMedianSortedArrays(int A[], int B[]) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        int m = A.length, n = B.length;
 
+        int m = A.length, n = B.length;
         // Base cases:
         // either A or B is null, then return the "median" element of the other
-        // if k == 0, then return min(A[startA], B[startB])
         if (m == 0) return n % 2 == 1 ? B[n / 2] : (double) (B[n / 2 - 1] + B[n / 2]) / 2.;
         if (n == 0) return m % 2 == 1 ? A[m / 2] : (double) (A[m / 2 - 1] + A[m / 2]) / 2.;
 
         int k = findKthElement(A, B, (m + n) / 2 + 1);
-
-        // deal with scenario that m+n is even
-        int k1 = k;
+        int k1 = k; // deal with scenario that m+n is even
         if ((m + n) % 2 == 0) k1 = findKthElement(A, B, (m + n) / 2);
         return (double) (k + k1) / 2.0;
     }
