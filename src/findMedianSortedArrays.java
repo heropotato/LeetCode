@@ -26,7 +26,7 @@ public class findMedianSortedArrays {
         int k = findKthElement(A, B, (m + n) / 2 + 1);
         int k1 = k; // deal with scenario that m+n is even
         if ((m + n) % 2 == 0) k1 = findKthElement(A, B, (m + n) / 2);
-        return (double) (k + k1) / 2.0;
+        return (k + k1) / 2.0;
     }
 
     public int findKthElement(int A[], int B[], int k) {

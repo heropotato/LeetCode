@@ -24,24 +24,22 @@ public class lengthOfLongestSubstring {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        int longestLength = 0;
+        int res = 0;
+        ArrayList<Character> path = new ArrayList<Character>();
 
         for (int i = 0; i < s.length(); i++) {
 
-            ArrayList<Character> path = new ArrayList<Character>();
-            int currentLength = 0;
+            path.clear();
+            int curLength = 0;
 
-            for (int c = i; c < s.length(); c++) {
-                char current = s.charAt(c);
-                if (path.contains(current)) break;
-                else {
-                    path.add(current);
-                    currentLength++;
-                }
-                if (currentLength>longestLength) longestLength = currentLength;
+            for (int j = i; j < s.length(); j++) {
+                char cur = s.charAt(j);
+                if (path.contains(cur)) break;
+                path.add(cur);
+                curLength++;
             }
-
+            if (curLength > res) res = curLength;
         }
-        return longestLength;
+        return res;
     }
 }
