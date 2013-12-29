@@ -24,60 +24,28 @@ public class addTwoNumbers {
     * */
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+
         StringBuilder a = new StringBuilder();
         StringBuilder b = new StringBuilder();
-        while (l1!=null){
+        while (l1 != null) {
             a.append(l1.val);
             l1 = l1.next;
         }
-        while (l2!=null){
+        while (l2 != null) {
             b.append(l2.val);
             l2 = l2.next;
         }
 
         long sum = Long.valueOf(a.reverse().toString()) + Long.valueOf(b.reverse().toString());
-        a = new StringBuilder();
+        a = new StringBuilder().append(sum).reverse();
         ListNode res = new ListNode(1);
         ListNode runner = res;
-        for (char c:  a.append(sum).reverse().toString().toCharArray()){
+        for (char c : a.toString().toCharArray()) {
             runner.next = new ListNode(Character.getNumericValue(c));
             runner = runner.next;
         }
         return res.next;
     }
-
-    /*
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
-        return parseLinkedList(parseNumber(l1) + parseNumber(l2));
-    }
-
-    public long parseNumber(ListNode head) {
-        long result = 0, times = 1;
-        ListNode current = head;
-
-        while (current != null) {
-            long temp = current.val * times;
-            result = result + temp;
-            current = current.next;
-            times = times * 10;
-        }
-
-        return result;
-    }
-
-    public ListNode parseLinkedList(long input) {
-        char[] resultArray = String.valueOf(input).toCharArray();
-        ListNode result = null;
-
-        for (int i = 0; i < resultArray.length; i++) {
-            int temp = Character.getNumericValue(resultArray[i]);
-            ListNode newHead = new ListNode(temp);
-            newHead.next = result;
-            result = newHead;
-        }
-
-        return result;
-    }*/
 }
