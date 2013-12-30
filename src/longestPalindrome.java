@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -19,37 +21,144 @@ public class longestPalindrome {
     *
     * */
 
+    // Naive approach
     public String longestPalindrome(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        // Pretty straightforward solution:
-        // If s.length() < 2, then return "" if s.isisEmpty(), otherwise return s
-        // Iterate s from indexes [0, s.length-2],
-        // Tricky part: for each position, we have to consider two cases: aabbcbbaa and aabbaa
-        // Track the longest result, and return it
+        // Iterate the given string,
+        // considering each position i, check longest palindrome string start from i inside out
+        // in addition, consider two cases:
+        // "aba", "abba"
 
-        if (s.length()<2) return s.isEmpty() ? "" : s;
+        if (s.length() < 2) return s;
+        String result = "";
 
-        String result = s.substring(0, 1);
+        for (int i = 0; i < s.length(); i++) {
 
-        for (int i = 0; i < s.length() - 1; i++) {
-            String temp1 = resultFind(s, i, i);
-            if (temp1.length() > result.length()) result = temp1;
+            String case1 = longestPalindrome(s, i, i);
+            if (case1.length() > result.length()) {
+                result = case1;
+            }
 
-            String temp2 = resultFind(s, i, i + 1);
-            if (temp2.length() > result.length()) result = temp2;
+            if (i<s.length()-1 && s.charAt(i) == s.charAt(i+1)){
+                String case2 = longestPalindrome(s, i, i + 1);
+                if (case2.length() > result.length()) {
+                    result = case2;
+                }
+            }
         }
+
         return result;
     }
 
-    public String resultFind(String s, int l, int r) {
+    private String longestPalindrome(String s, int left, int right) {
+        while (left-1 >= 0 && right+1 < s.length()){
+            if (s.charAt(left-1) == s.charAt(right+1)){
+                left--;
+                right++;
+                continue;
+            }
+            break;
+        }
+        return s.substring(left, right+1);
+    }
 
-        while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
-            l--;
-            r++;
+    // Dynamic Programming approach
+    /*
+    public String longestPalindrome(String s) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+
+        // Due the naive approach will exceed time limit (runs O(n^3) time complexity),
+        // Dynamic Programming approach works better (O(n^2) time complexity and O(N^2) space complexity)
+        //
+
+        boolean[][] isPalindrome = new boolean[s.length()][s.length()];
+
+        for (int j = 0; j < s.length(); j++) {
+            for (int i = 0; i < s.length(); i++) {
+                if (i + j >= s.length()) continue;
+                if (j == 0) isPalindrome[i][i + j] = true;
+                else if (j == 1) isPalindrome[i][i + j] = (s.charAt(i + j) == s.charAt(i));
+                else isPalindrome[i][i + j] = (s.charAt(i + j) == s.charAt(i)) && isPalindrome[i + 1][i + j - 1];
+            }
         }
 
-        return s.substring(l + 1, r);
+        String res = "";
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j < s.length(); j++) {
+                if (isPalindrome[i][j])
+                    if (res.length() < j - i + 1)
+                        res = s.substring(i, j + 1);
+            }
+        }
+        return res;
     }
+
+*/
+    /*
+    *
+    * Manacher's algorithm
+    *
+    * Time complexity of finding ongest palindromic substring of given string s is O(n)
+    *
+    *
+    * */
+
+    /*
+
+    public String longestPalindrome(String s) {
+        char[] t = preprocess(s);
+        int[] p = new int[t.length];
+
+        int center = 0, right = 0;
+        for (int i = 1; i < t.length-1; i++) {
+            int mirror = 2*center - i;
+
+            if (right > i) p[i] = Math.min(right - i, p[mirror]);
+
+            // attempt to expand palindrome centered at i
+            while (t[i + (1 + p[i])] == t[i - (1 + p[i])])
+                p[i]++;
+
+            // if palindrome centered at i expands past right,
+            // adjust center based on expanded palindrome.
+            if (i + p[i] > right) {
+                center = i;
+                right = i + p[i];
+            }
+        }
+        return longestPalindromicSubstring(s, p);
+    }
+
+    public char[] preprocess(String s) {
+        // constructing string
+        // for example: given string "abcd"
+        // after constructing: "$a#b#c#d@"
+        char[] t = new char[s.length()*2 + 3];
+        t[0] = '$';
+        t[s.length()*2 + 2] = '@';
+        for (int i = 0; i < s.length(); i++) {
+            t[2*i + 1] = '#';
+            t[2*i + 2] = s.charAt(i);
+        }
+        t[s.length()*2 + 1] = '#';
+        return t;
+    }
+
+    // longest palindromic substring
+    public String longestPalindromicSubstring(String s, int[] p) {
+        int length = 0;   // length of longest palindromic substring
+        int center = 0;   // center of longest palindromic substring
+        for (int i = 1; i < p.length-1; i++) {
+            if (p[i] > length) {
+                length = p[i];
+                center = i;
+            }
+        }
+        return s.substring((center - 1 - length) / 2, (center - 1 + length) / 2);
+    }
+
+*/
 }
