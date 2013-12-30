@@ -24,10 +24,7 @@ public class reverse {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if (x < 0) {
-            return -Integer.valueOf(new StringBuffer().append(-x).reverse().toString());
-        } else {
-            return Integer.valueOf(new StringBuffer().append(x).reverse().toString());
-        }
+        int abs = Integer.valueOf(new StringBuffer().append(Math.abs(x)).reverse().toString());
+        return x<0?-abs:abs;
     }
 }
