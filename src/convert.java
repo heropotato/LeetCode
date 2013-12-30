@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.concurrent.LinkedBlockingQueue;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -30,74 +33,52 @@ public class convert {
     * */
 
     public String convert(String s, int nRows) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
+        if(s.length() < 2 || nRows == 1 || s.length() <= nRows) return s;
+        StringBuilder stringBuilder = new StringBuilder("");
+        int count = 0;
 
-        if (nRows == 1) return s;
-        char[] input = s.toCharArray();
-
+        // deal with base case when nRows == 2
         if (nRows == 2) {
-
-            StringBuffer firstRow = new StringBuffer();
-            StringBuffer secondRow = new StringBuffer();
-
-            int pos = 0;
-
-            for (Character c : input) {
-                if (pos % 2 == 0) {
-                    firstRow.append(c);
-                } else {
-                    secondRow.append(c);
-                }
-                pos++;
+            StringBuilder stringBuilder1 = new StringBuilder("");
+            for (char c:s.toCharArray()){
+                if (count%2==0) stringBuilder.append(c);
+                else stringBuilder1.append(c);
+                count++;
             }
-            return firstRow.append(secondRow).toString();
+            return stringBuilder.append(stringBuilder1).toString();
         }
 
-        if (s.length() <= nRows) {
-            return s;
-        } else {
-
-            int eachRoundPointer = 0;
-            int pointer = 0;
-
-            String[] rows = new String[nRows];
-
-            while (pointer < input.length) {
-
-                if (eachRoundPointer == 2 * nRows) {
-                    eachRoundPointer = 0;
-                }
-
-                if (eachRoundPointer < nRows) {
-                    if (rows[eachRoundPointer] == null) {
-                        rows[eachRoundPointer] = String.valueOf(input[pointer]);
-                    } else {
-                        rows[eachRoundPointer] += String.valueOf(input[pointer]);
-                    }
-                    pointer++;
-                }
-
-                if (eachRoundPointer > nRows && eachRoundPointer != 2 * nRows - 1) {
-                    if (rows[2 * nRows - eachRoundPointer - 1] == null) {
-                        rows[2 * nRows - eachRoundPointer - 1] = String.valueOf(input[pointer]);
-                    } else {
-                        rows[2 * nRows - eachRoundPointer - 1] += String.valueOf(input[pointer]);
-                    }
-                    pointer++;
-                }
-
-                eachRoundPointer++;
-
-            }
-
-            StringBuffer res = new StringBuffer();
-
-            for (String s1 : rows) {
-                res.append(s1);
-            }
-
-            return res.toString();
+        // deal with general cases
+        ArrayList<LinkedBlockingQueue<Character>> scans = new ArrayList<LinkedBlockingQueue<Character>>();
+        count = nRows;
+        while (count > 0){
+            LinkedBlockingQueue<Character> temp = new LinkedBlockingQueue<Character>();
+            scans.add(temp);
+            count--;
         }
+        boolean foward = true;
+
+        for (char c:s.toCharArray()){
+            if (foward){
+                scans.get(count).offer(c);
+                count++;
+                if (count == nRows){
+                    foward = false;
+                    count = nRows-2;
+                }
+            }else {
+                scans.get(count).offer(c);
+                count--;
+                if (count == 0){
+                    foward = true;
+                }
+            }
+        }
+
+        for (LinkedBlockingQueue<Character> queue:scans){
+            while (!queue.isEmpty()) stringBuilder.append(queue.poll());
+        }
+        return stringBuilder.toString();
     }
+
 }
