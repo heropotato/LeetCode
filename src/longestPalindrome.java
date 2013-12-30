@@ -37,15 +37,11 @@ public class longestPalindrome {
         for (int i = 0; i < s.length(); i++) {
 
             String case1 = longestPalindrome(s, i, i);
-            if (case1.length() > result.length()) {
-                result = case1;
-            }
+            if (case1.length() > result.length()) result = case1;
 
-            if (i<s.length()-1 && s.charAt(i) == s.charAt(i+1)){
+            if (i < s.length() - 1 && s.charAt(i) == s.charAt(i + 1)) {
                 String case2 = longestPalindrome(s, i, i + 1);
-                if (case2.length() > result.length()) {
-                    result = case2;
-                }
+                if (case2.length() > result.length()) result = case2;
             }
         }
 
@@ -53,50 +49,54 @@ public class longestPalindrome {
     }
 
     private String longestPalindrome(String s, int left, int right) {
-        while (left-1 >= 0 && right+1 < s.length()){
-            if (s.charAt(left-1) == s.charAt(right+1)){
-                left--;
-                right++;
-                continue;
-            }
-            break;
+        while (left - 1 >= 0 && right + 1 < s.length()) {
+            if (s.charAt(left - 1) != s.charAt(right + 1)) break;
+            left--;
+            right++;
         }
-        return s.substring(left, right+1);
+        return s.substring(left, right + 1);
     }
 
+/*
     // Dynamic Programming approach
-    /*
     public String longestPalindrome(String s) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
         // Due the naive approach will exceed time limit (runs O(n^3) time complexity),
         // Dynamic Programming approach works better (O(n^2) time complexity and O(N^2) space complexity)
-        //
+        // each character is palindrome, then isPalindrome[i][i] = true;
+        // then if s.charAt[i] == s.charAt[i+1], then isPalindrome[i][i+1] = true;
+        // then isPalindrome[i][i + j] = (s.charAt(i + j) == s.charAt(i)) && isPalindrome[i + 1][i + j - 1];
 
-        boolean[][] isPalindrome = new boolean[s.length()][s.length()];
+        if (s.length() < 2) return s;
+        boolean[][] board = new boolean[s.length()][s.length()];
+        int[] res = {0, -1}; // use int[] track the longest palindrome substring index range
 
         for (int j = 0; j < s.length(); j++) {
             for (int i = 0; i < s.length(); i++) {
                 if (i + j >= s.length()) continue;
-                if (j == 0) isPalindrome[i][i + j] = true;
-                else if (j == 1) isPalindrome[i][i + j] = (s.charAt(i + j) == s.charAt(i));
-                else isPalindrome[i][i + j] = (s.charAt(i + j) == s.charAt(i)) && isPalindrome[i + 1][i + j - 1];
+                if (j == 0){
+                    board[i][i + j] = true; // every character is palindrome itself
+                } else if (j == 1) {
+                    board[i][i+j] = s.charAt(i) == s.charAt(i + j);
+                    if (board[i][j] && (res[1] - res[0] < j - i)) {
+                        res[0] = i;
+                        res[1] = j;
+                    }
+                } else {
+                    board[i][i + j] = (s.charAt(i + j) == s.charAt(i)) && board[i + 1][i + j - 1];
+                    if (board[i][j] && (res[1] - res[0] < j - i)) {
+                        res[0] = i;
+                        res[1] = j;
+                    }
+                }
             }
         }
-
-        String res = "";
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i; j < s.length(); j++) {
-                if (isPalindrome[i][j])
-                    if (res.length() < j - i + 1)
-                        res = s.substring(i, j + 1);
-            }
-        }
-        return res;
+        return s.substring(res[0], res[1] + 1);
     }
 
-*/
+    */
     /*
     *
     * Manacher's algorithm
