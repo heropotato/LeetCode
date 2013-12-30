@@ -37,17 +37,6 @@ public class convert {
         StringBuilder stringBuilder = new StringBuilder("");
         int count = 0;
 
-        // deal with base case when nRows == 2
-        if (nRows == 2) {
-            StringBuilder stringBuilder1 = new StringBuilder("");
-            for (char c:s.toCharArray()){
-                if (count%2==0) stringBuilder.append(c);
-                else stringBuilder1.append(c);
-                count++;
-            }
-            return stringBuilder.append(stringBuilder1).toString();
-        }
-
         // deal with general cases
         ArrayList<LinkedBlockingQueue<Character>> scans = new ArrayList<LinkedBlockingQueue<Character>>();
         count = nRows;
@@ -56,21 +45,24 @@ public class convert {
             scans.add(temp);
             count--;
         }
-        boolean foward = true;
+        boolean forward = true;
 
         for (char c:s.toCharArray()){
-            if (foward){
+            if (forward){
                 scans.get(count).offer(c);
                 count++;
                 if (count == nRows){
-                    foward = false;
-                    count = nRows-2;
+                    forward = false;
+                    if (nRows - 2 <= 0){
+                        count = 0;
+                        forward = true;
+                    }else count = nRows - 2;
                 }
             }else {
                 scans.get(count).offer(c);
                 count--;
                 if (count == 0){
-                    foward = true;
+                    forward = true;
                 }
             }
         }
