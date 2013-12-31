@@ -25,47 +25,33 @@ public class isValid {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // Use stack to store path and pop stack to determine whether current parenthese can pair the previous one
         if (s.isEmpty()) return true;
         if (s.length() % 2 != 0) return false;
 
         Stack<Character> stack = new Stack<Character>();
-
         for (char c : s.toCharArray()) {
-
             switch (c) {
-
                 case ')':
-                    if (stack.empty() || stack.peek() != '(') {
-                        return false;
-                    } else {
-                        stack.pop();
-                    }
+                    if (stack.empty() || stack.peek() != '(') return false;
+                    else stack.pop();
                     break;
 
                 case ']':
-                    if (stack.empty() || stack.peek() != '[') {
-                        return false;
-                    } else {
-                        stack.pop();
-                    }
+                    if (stack.empty() || stack.peek() != '[') return false;
+                    else stack.pop();
                     break;
 
                 case '}':
-                    if (stack.empty() || stack.peek() != '{') {
-                        return false;
-                    } else {
-                        stack.pop();
-                    }
+                    if (stack.empty() || stack.peek() != '{') return false;
+                    else stack.pop();
                     break;
 
                 default:
                     stack.push(c);
                     break;
-
             }
-
         }
-
         return stack.empty() ? true : false;
     }
 
