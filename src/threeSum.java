@@ -23,34 +23,30 @@ public class threeSum {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // A three pointer solution
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         if (num.length < 3) return res;
         Arrays.sort(num);
         HashSet hashSet = new HashSet();
 
         for (int i = 0; i < num.length - 2; i++) {
-            int lPointer = i + 1;
-            int rPointer = num.length - 1;
+            int leftP = i + 1;
+            int rightP = num.length - 1;
 
-            while (lPointer < rPointer) {
-                if (num[i] + num[lPointer] + num[rPointer] > 0) {
-                    rPointer--;
-                } else if (num[i] + num[lPointer] + num[rPointer] < 0) {
-                    lPointer++;
-                } else {
+            while (leftP < rightP) {
+                if (num[i] + num[leftP] + num[rightP] > 0) rightP--;
+                else if (num[i] + num[leftP] + num[rightP] < 0) leftP++;
+                else {
                     ArrayList<Integer> temp = new ArrayList<Integer>();
                     temp.add(num[i]);
-                    temp.add(num[lPointer]);
-                    temp.add(num[rPointer]);
-
+                    temp.add(num[leftP]);
+                    temp.add(num[rightP]);
                     if (hashSet.add(temp)) res.add(temp);
-                    rPointer--;
-                    lPointer++;
+                    rightP--;
+                    leftP++;
                 }
             }
-
         }
-
         return res;
     }
 }
