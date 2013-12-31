@@ -29,55 +29,41 @@ public class fourSum {
 
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         if (num.length < 4) return res;
-
         Arrays.sort(num);
         HashSet<ArrayList<Integer>> hashSet = new HashSet<ArrayList<Integer>>();
-        int pointer = 0;
-
-        while (pointer <= num.length - 4) {
-            int tempTarget = target - num[pointer];
-            int[] tempNum = Arrays.copyOfRange(num, pointer + 1, num.length);
-
-            for (ArrayList<Integer> list : threeSum(tempNum, tempTarget, num[pointer])) {
+        for (int cur = 0; cur< num.length -3; cur++){
+            for (ArrayList<Integer> list : threeSum(Arrays.copyOfRange(num, cur + 1, num.length), target-num[cur], num[cur])) {
                 if (hashSet.add(list)) res.add(list);
             }
-            pointer++;
         }
-
         return res;
     }
 
-    private ArrayList<ArrayList<Integer>> threeSum(int[] num, int target, int pre) {
+    private ArrayList<ArrayList<Integer>> threeSum(int[] num, int target, int cur) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-        if (num.length < 3) return res;
-
         for (int i = 0; i < num.length - 2; i++) {
-            int lPointer = i + 1;
-            int rPointer = num.length - 1;
+            int leftP = i + 1;
+            int rightP = num.length - 1;
 
-            while (lPointer < rPointer) {
-                if (num[i] + num[lPointer] + num[rPointer] > target) {
-                    rPointer--;
-                } else if (num[i] + num[lPointer] + num[rPointer] < target) {
-                    lPointer++;
-                } else {
+            while (leftP < rightP) {
+                if (num[i] + num[leftP] + num[rightP] > target) rightP--;
+                else if (num[i] + num[leftP] + num[rightP] < target) leftP++;
+                else {
                     ArrayList<Integer> temp = new ArrayList<Integer>();
-                    temp.add(pre);
+                    temp.add(cur);
                     temp.add(num[i]);
-                    temp.add(num[lPointer]);
-                    temp.add(num[rPointer]);
+                    temp.add(num[leftP]);
+                    temp.add(num[rightP]);
 
                     res.add(temp);
-                    rPointer--;
-                    lPointer++;
+                    rightP--;
+                    leftP++;
                 }
             }
-
         }
-
         return res;
     }
 }
