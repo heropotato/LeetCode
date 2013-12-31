@@ -27,7 +27,13 @@ public class isMatch {
 
         if (p.length() == 0) return s.length() == 0;
 
-        //Divide to two categories: next char of p is NOT * or next char of p is *
+        // Divide to two categories: next char of p is * or not
+        // Divide and conquer:
+        // if * represent 0 time of previous char
+        // if * represent 1 time of previous char
+        // ...
+        // if * represent n time of previous char
+
         if (p.length() == 1 || p.charAt(1) != '*') {
             if (s.length() < 1 || (p.charAt(0) != '.' && p.charAt(0) != s.charAt(0))) return false;
             return isMatch(s.substring(1), p.substring(1));
@@ -40,7 +46,5 @@ public class isMatch {
             }
             return false;
         }
-
     }
-
 }
