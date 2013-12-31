@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -13,7 +15,6 @@ public class longestCommonPrefix {
     *
     * Write a function to find the longest common prefix string amongst an array of strings.
     *
-    *
     * */
 
     public String longestCommonPrefix(String[] strs) {
@@ -21,23 +22,16 @@ public class longestCommonPrefix {
         // DO NOT write main() function
 
         if (strs.length == 0) return "";
-        String res = strs[0];
-
-        for (String s : strs) {
-
-            if (s.isEmpty()) return "";
-            int tempLength = Math.min(res.length(), s.length());
-            int pointer = 0;
-
-            while (pointer < tempLength) {
-                if (res.charAt(pointer) != s.charAt(pointer)) break;
-                pointer++;
+        Stack<String> stack = new Stack<String>();
+        for (String string:strs){
+            if (string.isEmpty()) return "";
+            if (stack.isEmpty()) stack.push(string);
+            int i = 0;
+            for (; i < Math.min(stack.peek().length(), string.length()); i ++){
+                if (stack.peek().charAt(i) != string.charAt(i)) break;
             }
-
-            res = res.substring(0, pointer);
-
+            stack.push(stack.pop().substring(0, i));
         }
-
-        return res;
+        return stack.pop();
     }
 }
