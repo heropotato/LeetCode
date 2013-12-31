@@ -27,22 +27,22 @@ public class removeNthFromEnd {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        ListNode newList = new ListNode(Integer.MAX_VALUE);
-        ListNode current = head, preDelete = newList;
-        newList.next = head;
 
-        while (n > 0 && current != null) {
-            current = current.next;
+        // Two-runner solution
+        ListNode extra = new ListNode(0);
+        extra.next = head;
+        ListNode fastR = head;
+        ListNode slowR = extra;
+        while (n>0 && fastR!=null){
+            fastR = fastR.next;
             n--;
         }
-
-        while (current != null) {
-            current = current.next;
-            preDelete = preDelete.next;
+        while (fastR!=null){
+            fastR = fastR.next;
+            slowR = slowR.next;
         }
-
-        if (preDelete.next != null) preDelete.next = preDelete.next.next;
-        return newList.next;
+        if (slowR.next!=null) slowR.next = slowR.next.next;
+        return extra.next;
     }
 
 }
