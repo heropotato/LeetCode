@@ -28,30 +28,24 @@ public class threeSumClosest {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // A similar question to 3Sum, use three pointers to find closest 3Sum
         Arrays.sort(num);
         int res = num[0] + num[1] + num[2];
 
         for (int i = 0; i < num.length - 2; i++) {
+            int leftP = i + 1;
+            int rightP = num.length - 1;
 
-            int lPointer = i + 1;
-            int rPointer = num.length - 1;
-
-            while (lPointer < rPointer) {
-
-                int temp = num[i] + num[lPointer] + num[rPointer];
-                if (temp == target) {
-                    return target;
-                } else if (temp > target) {
-                    if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
-                    rPointer--;
-                } else {
-                    if (Math.abs(target - res) > Math.abs(target - temp)) res = temp;
-                    lPointer++;
+            while (leftP < rightP) {
+                int curSum = num[i] + num[leftP] + num[rightP];
+                if (curSum == target) return target;
+                else {
+                    if (Math.abs(target - curSum) < Math.abs(target - res)) res = curSum;
+                    if (curSum > target) rightP--;
+                    else leftP++;
                 }
             }
-
         }
         return res;
     }
-
 }
