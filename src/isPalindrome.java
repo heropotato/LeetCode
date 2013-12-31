@@ -14,6 +14,7 @@ public class isPalindrome {
      * Determine whether an integer is a palindrome. Do this without extra space.
      *
      */
+
     public boolean isPalindrome(int x) {
         // Start typing your Java solution below
         // DO NOT write main() function
