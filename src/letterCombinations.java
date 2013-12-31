@@ -23,42 +23,23 @@ public class letterCombinations {
         // DO NOT write main() function
 
         ArrayList<String> res = new ArrayList<String>();
-        if (digits.length() == 0) {
-            res.add("");
-            return res;
-        }
-
+        res.add("");
         for (char c : digits.toCharArray()) {
-            int tempNum = Integer.valueOf(String.valueOf(c));
-
-            if (res.size() == 0) {
-                res = letterCombinations(tempNum);
-            } else {
-
-                ArrayList<String> newRes = new ArrayList<String>();
-
-                for (String s : res) {
-                    for (String n : letterCombinations(tempNum)) {
-                        String temp = s + n;
-                        newRes.add(temp);
-                    }
-
-                }
-
-                res = newRes;
+            int num = Integer.valueOf(String.valueOf(c));
+            ArrayList<String> newRes = new ArrayList<String>();
+            for (String s : res) {
+                for (String n : letterCombinations(num)) newRes.add(s + n);
             }
+            res = newRes;
         }
 
         return res;
-
     }
 
-    private ArrayList<String> letterCombinations(int number) {
+    private ArrayList<String> letterCombinations(int num) {
 
         ArrayList<String> temp = new ArrayList<String>();
-
-        switch (number) {
-
+        switch (num) {
             case 2:
                 temp.add("a");
                 temp.add("b");
@@ -112,9 +93,7 @@ public class letterCombinations {
             default:
                 temp.add("");
                 return temp;
-
         }
-
     }
 
 }
