@@ -18,15 +18,25 @@ public class isPalindrome {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if (x < 0) return false;
+        // Constructing a reversed int without extra space
+        // base case: negative number is considered as NON-palindrome
+        // while(current > reverse)
+        // in each round:
+        // retrieve the last digit from current and add to the tail of the reverse
+        // then, if current == 0, then reverse should be completed, return reverse == x
+        // in this case: for example x = 5
+        // otherwise, return (current == reverse) || current == (reverse / 10)
+        // for example: x = 123321, or x = 1234321 respectively
 
-        int a = x, b = 0;
-        while (a > b) {
-            b = b * 10 + a % 10;
-            a /= 10;
+        if (x < 0) return false;
+        int current = x, reverse = 0;
+
+        while (current > reverse) {
+            reverse = reverse * 10 + current % 10;
+            current /= 10;
         }
 
-        if (a == 0) return (x == b);
-        return (a == b) || a == (b / 10);
+        if (current == 0) return (x == reverse);
+        return (current == reverse) || current == (reverse / 10);
     }
 }
