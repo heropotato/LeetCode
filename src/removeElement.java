@@ -12,9 +12,7 @@ public class removeElement {
     * Remove Element
     *
     * Given an array and a value, remove all instances of that value in place and return the new length.
-    *
     * The order of elements can be changed. It doesn't matter what you leave beyond the new length.
-    *
     *
     * */
 
@@ -22,27 +20,18 @@ public class removeElement {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        int length = A.length;
-
-        if (length == 0) return 0;
-
-        int i = 0;
-        int runner = 0;
-        length = 0;
-        while (runner < A.length) {
-            if (A[runner] != elem) {
-                int temp = A[i];
-                A[i] = A[runner];
-                A[runner] = temp;
+        // Really simple solution:
+        // find any one different than the given element
+        if (A.length == 0) return 0;
+        int i = 0, j = 0;
+        while (j<A.length){
+            if (A[j] != elem) {
+                A[i] = A[j];
                 i++;
-                runner = i;
-                length++;
-            } else {
-                runner++;
             }
+            j++;
         }
-
-        return length;
+        return i;
     }
 
 }
