@@ -24,12 +24,11 @@ public class removeElement {
         // find any one different than the given element
         if (A.length == 0) return 0;
         int i = 0, j = 0;
-        while (j<A.length){
+        for (; j < A.length; j++) {
             if (A[j] != elem) {
                 A[i] = A[j];
                 i++;
             }
-            j++;
         }
         return i;
     }
