@@ -13,42 +13,25 @@ public class strStr {
     *
     * Returns a pointer to the first occurrence of needle in haystack, or null if needle is not part of haystack.
     *
-    *
     * */
 
-    public String strStr(String haystack, String needle) {
+     public String strStr(String haystack, String needle) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (haystack.isEmpty() && needle.isEmpty()) {
-            return "";
-        } else if ((haystack.isEmpty() && !needle.isEmpty()) || (haystack.length() < needle.length())) {
-            return null;
-        } else if (!haystack.isEmpty() && needle.isEmpty()) {
-            return haystack;
-        } else {
+        if (needle.isEmpty()) return haystack.isEmpty() ? "" : haystack;
+        if (needle.length() > haystack.length()) return null;
 
-            char[] h = haystack.toCharArray();
-            char[] n = needle.toCharArray();
-
-            for (int i = 0; i < haystack.length(); i++) {
-
-                if (h[i] == n[0] && (haystack.length() - i) >= needle.length()) {
-                    int j = 1;
-                    boolean temp = true;
-                    while (j < needle.length()) {
-                        if (h[i + j] != n[j]) {
-                            temp = false;
-                            break;
-                        }
-                        j++;
-                    }
-
-                    if (temp) return haystack.substring(i);
-
+        for (int i = 0; i < haystack.length(); i++){
+            if (haystack.length()-i < needle.length()) break;
+            if (haystack.charAt(i) == needle.charAt(0)){
+                int j = 0, res = i;
+                while (j < needle.length()){
+                    if (haystack.charAt(res+j) == needle.charAt(j)) j++;
+                    else break;
+                    if (j == needle.length()) return haystack.substring(res);
                 }
             }
         }
         return null;
     }
-
 }
