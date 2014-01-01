@@ -24,14 +24,14 @@ public class swapPairs {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // A simple recursion solution
         if (head == null || head.next == null) return head;
 
-        ListNode rest = swapPairs(head.next.next);
-        ListNode second = head.next;
-        head.next = rest;
-        second.next = head;
-
-        return second;
+        ListNode swap = swapPairs(head.next.next);
+        ListNode res = head.next;
+        head.next = swap;
+        res.next = head;
+        return res;
     }
 
 }
