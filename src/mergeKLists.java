@@ -23,45 +23,37 @@ public class mergeKLists {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        if (lists.size()<2) return lists.size()==0?null:lists.get(0);
-        ListNode res = lists.get(0);
-        ListNode ori = res;
-        for (int i = 1; i<lists.size();i++){
-            ListNode cur = lists.get(i);
-            while (cur!=null){
+        // Time complexity: O(n^2), Space complexity: constant
+        if (lists.size() < 2) return lists.size() == 0 ? null : lists.get(0);
+        ListNode res = null;
+        for (ListNode cur : lists) {
+            while (cur != null) {
                 ListNode add = cur;
                 cur = cur.next;
                 add.next = null;
-                ori = add(ori, add);
+                res = add(res, add);
             }
         }
-        return ori;
+        return res;
     }
 
-    private ListNode add(ListNode ori, ListNode add){
-        if (ori == null) return add;
-        ListNode slow = ori;
-        ListNode fast = ori.next;
-        while (fast!=null){
-            if (add.val < slow.val){
-                add.next = slow;
-                return add;
-            }
-            if (add.val <= fast.val && add.val >= slow.val){
+    private ListNode add(ListNode res, ListNode add) {
+        if (res == null || add.val <= res.val){
+            add.next = res;
+            return add;
+        }
+        ListNode slow = res;
+        ListNode fast = res.next;
+        while (fast != null) {
+            if (add.val <= fast.val && add.val >= slow.val) {
                 slow.next = add;
                 add.next = fast;
-                return ori;
+                return res;
             }
             slow = slow.next;
             fast = fast.next;
         }
-        if (slow.val <= add.val){
-            slow.next = add;
-            return ori;
-        }
-        else {
-            add.next = slow;
-            return add;
-        }
+        slow.next = add;
+        return res;
     }
 }
