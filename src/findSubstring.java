@@ -34,44 +34,23 @@ public class findSubstring {
         ArrayList<Integer> res = new ArrayList<Integer>();
         if (S.isEmpty() || L.length == 0) return res;
 
-        int lengthPerWord = L[0].length();
-        int blockSize = lengthPerWord * L.length;
-        if (S.length() < blockSize) return res;
-
         HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
-        for (String str : L) {
-            if (hashMap.containsKey(str)) {
-                hashMap.put(str, hashMap.get(str) + 1);
-            } else {
-                hashMap.put(str, 1);
-            }
+        for (String s : L) {
+            if (hashMap.containsKey(s)) hashMap.put(s, hashMap.get(s) + 1);
+            else hashMap.put(s, 1);
         }
 
-        int i = 0;
-        while (i <= S.length() - blockSize) {
-            int runner = i;
-            HashMap<String, Integer> tempHashMap = new HashMap<String, Integer>(hashMap);
-            while (runner - i < blockSize) {
-                String temp = S.substring(runner, runner + lengthPerWord);
-                if (tempHashMap.containsKey(temp.toString())) {
-                    int num = tempHashMap.get(temp.toString());
-                    if (num == 1) {
-                        tempHashMap.remove(temp.toString());
-                    } else {
-                        tempHashMap.put(temp.toString(), num - 1);
-                    }
-                    if (tempHashMap.isEmpty()) {
-                        res.add(i);
-                        break;
-                    }
-                    runner += lengthPerWord;
-                } else {
-                    break;
-                }
+        for (int i = 0; i <= S.length() - (L.length * L[0].length()); i++) {
+            String current = S.substring(i, i + L.length * L[0].length());
+            HashMap<String, Integer> test = new HashMap<String, Integer>(hashMap);
+            for (int j = 0; j <= (L.length - 1) * L[0].length(); j = j + L[0].length()) {
+                String word = current.substring(j, j + L[0].length());
+                if (!test.containsKey(word)) break;
+                if (test.get(word) == 1) test.remove(word);
+                else test.put(word, test.get(word) - 1);
             }
-            i++;
+            if (test.size() == 0) res.add(i);
         }
-
         return res;
     }
 
