@@ -33,5 +33,4 @@ public class removeElement {
         }
         return i;
     }
-
 }
