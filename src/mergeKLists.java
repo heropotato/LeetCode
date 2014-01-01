@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.PriorityQueue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,36 +17,51 @@ public class mergeKLists {
     *
     * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
     *
-    *
-    *
     * */
 
     public ListNode mergeKLists(ArrayList<ListNode> lists) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        ListNode res = new ListNode(0);
-
-        if (lists.size() == 0) return null;
-        if (lists.size() == 1) return lists.get(0);
-
-        ArrayList<Integer> minQueue = new ArrayList<Integer>();
-
-        for (ListNode list : lists) {
-            while (list != null) {
-                minQueue.add(list.val);
-                list = list.next;
+        if (lists.size()<2) return lists.size()==0?null:lists.get(0);
+        ListNode res = lists.get(0);
+        ListNode ori = res;
+        for (int i = 1; i<lists.size();i++){
+            ListNode cur = lists.get(i);
+            while (cur!=null){
+                ListNode add = cur;
+                cur = cur.next;
+                add.next = null;
+                ori = add(ori, add);
             }
         }
+        return ori;
+    }
 
-        Collections.sort(minQueue);
-        ListNode pointer = res;
-
-        for (Integer i : minQueue) {
-            pointer.next = new ListNode(i);
-            pointer = pointer.next;
+    private ListNode add(ListNode ori, ListNode add){
+        if (ori == null) return add;
+        ListNode slow = ori;
+        ListNode fast = ori.next;
+        while (fast!=null){
+            if (add.val < slow.val){
+                add.next = slow;
+                return add;
+            }
+            if (add.val <= fast.val && add.val >= slow.val){
+                slow.next = add;
+                add.next = fast;
+                return ori;
+            }
+            slow = slow.next;
+            fast = fast.next;
         }
-
-        return res.next;
+        if (slow.val <= add.val){
+            slow.next = add;
+            return ori;
+        }
+        else {
+            add.next = slow;
+            return add;
+        }
     }
 }
