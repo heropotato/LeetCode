@@ -52,6 +52,5 @@ public class reverseKGroup {
         }
         head.next = reverseKGroup(rest, k);
         return res;
-
     }
 }
