@@ -26,6 +26,20 @@ public class search {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // Because the given sorted array is rotated, the time complexity of finding a specific value is O(N) rather than O(log N)
+        int i = 0;
+        for (int a : A){
+            if (a==target) return i;
+            i++;
+        }
+        return -1;
+    }
+
+    /*
+    public int search(int[] A, int target) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+
         if (A.length == 0) return -1;
         if (A.length == 1) return (A[0] == target ? 0 : -1);
 
@@ -56,4 +70,5 @@ public class search {
         }
         return -1;
     }
+    */
 }
