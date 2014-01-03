@@ -19,52 +19,29 @@ public class searchRange {
     *
     * */
 
-    public int[] searchRange(int[] A, int target) {
+    public static void main(String[] args) {
+        int[] a = {1};
+        searchRange(a, 1);
+    }
+
+    public static int[] searchRange(int[] A, int target) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        int[] res = new int[2];
-        res[0] = -1;
-        res[1] = -1;
 
+        // Use binary search to find the position of target value
+        int[] res = {-1, -1};
         if (A.length == 0) return res;
-        if (A.length == 1) {
-            if (A[0] == target) {
-                res[0] = 0;
-                res[1] = 0;
-            }
-            return res;
-        }
 
-        int leftRunner = 0;
-        int rightRunner = A.length - 1;
-        while (leftRunner <= rightRunner) {
-            int position = (leftRunner + rightRunner) / 2;
-            if (target < A[position]) {
-                rightRunner = position - 1;
-                continue;
-            } else if (target > A[position]) {
-                leftRunner = position + 1;
-                continue;
-            } else {
-                int i = position;
-                int j = position;
-
-                while (i >= 0) {
-                    if (A[i] == target) {
-                        i--;
-                    } else {
-                        break;
-                    }
-                }
-
-                while (j < A.length) {
-                    if (A[j] == target) {
-                        j++;
-                    } else {
-                        break;
-                    }
-                }
-
+        int low = 0;
+        int high = A.length - 1;
+        while (low <= high) {
+            int p = (low + high) / 2;
+            if (target < A[p]) high = p - 1;
+            else if (target > A[p]) low = p + 1;
+            else {
+                int i = p, j = p;
+                while (i >= 0 && A[i] == target) i--;
+                while (j < A.length && A[j] == target) j++;
                 res[0] = i + 1;
                 res[1] = j - 1;
                 return res;
