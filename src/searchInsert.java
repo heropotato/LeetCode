@@ -27,36 +27,23 @@ public class searchInsert {
     public int searchInsert(int[] A, int target) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (A.length < 2) {
-            if (A.length == 0) return 0;
-            return target <= A[0] ? 0 : 1;
-        }
 
-        int length = A.length;
-        int start = 0;
-        int end = length - 1;
-
-        while (start <= end) {
-            int pos = (start + end) / 2;
-            if (target < A[pos]) {
-                end = pos - 1;
-            } else if (target > A[pos]) {
-                start = pos + 1;
+        if (A.length == 0) return 0;
+        int low = 0, high = A.length - 1;
+        while (low < high) {
+            int p = (low + high) / 2;
+            if (A[p] > target) {
+                high = p - 1;
+            } else if (A[p] < target) {
+                low = p + 1;
             } else {
-                return pos;
+                return p;
             }
         }
 
-        if (start == length) {
-            return length;
-        } else {
-            if (target < A[start]) {
-                if (start == 0) return 0;
-                return start;
-            } else {
-                return start + 1;
-            }
-        }
-
+        int p = Math.min(low, high);
+        if (p < 0 || p >= A.length) return p < 0 ? 0 : A.length;
+        while (p < A.length && A[p] < target) p++;
+        return p;
     }
 }
