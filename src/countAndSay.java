@@ -20,43 +20,21 @@ public class countAndSay {
     *
     * Given an integer n, generate the nth sequence.
     *
-    *
     * */
-
 
     public String countAndSay(int n) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (n == 0) return new String();
-        return countAndSay("1", n - 1);
-    }
+        if (n < 2) return n==0?null:"1";
 
-    private String countAndSay(String pre, int n) {
-        if (n == 0) return pre;
-        n--;
-        StringBuffer res = new StringBuffer();
-        int i = 0;
-
-        while (i < pre.length()) {
-            int runner = i + 1;
-            char temp = pre.charAt(i);
+        StringBuilder builder = new StringBuilder();
+        String prev = countAndSay(n - 1);
+        for (int i = 0; i < prev.length(); i++) {
             int count = 1;
-
-            while (runner < pre.length()) {
-                if (pre.charAt(runner) != temp) break;
-                count++;
-                runner++;
-            }
-
-            res.append(count).append(temp);
-            if (count > 1) {
-                if (runner == pre.length()) break;
-                i = runner;
-            } else {
-                i++;
-            }
+            while (i + count<prev.length() && prev.charAt(i + count) == prev.charAt(i)) count++;
+            i += count-1;
+            builder.append(count).append(prev.charAt(i));
         }
-
-        return countAndSay(res.toString(), n);
+        return builder.toString();
     }
 }
