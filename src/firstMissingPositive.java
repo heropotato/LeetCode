@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: yongwen
@@ -14,40 +16,35 @@ public class firstMissingPositive {
     * Given an unsorted integer array, find the first missing positive integer.
     *
     * For example,
-    *
     * Given [1,2,0] return 3,
     * and [3,4,-1,1] return 2.
     *
-    *
     * Your algorithm should run in O(n) time and uses constant space.
-    *
     *
     * */
 
-    public int firstMissingPositive(int[] A) {
+    public static int firstMissingPositive(int[] A) {
         // Start typing your Java solution below
         // DO NOT write main() function
 
-        //Notes:
-        //1, positive integer start from 1
-        //2, according to note 1, each integer and its position should be as A[i] = i+1
-        //3, according to the relationship described as note 2, traverse the array and swap integer which is not located corresponding positions
-        //4, traverse the swapped array, find out the missing integer
+        // For a sorted without any missing positive integer:
+        // Then, A[i] = i+1;
+        // Iterate the given array, if any element cannot satisfy A[i] = i+1,
+        // then swap it to its "supposed to be" position, which is i = A[i] - 1;
+        // swap (A[i], A[A[i] - 1])
         int i = 0;
         while (i < A.length) {
-            if (A[i] != i + 1 && A[i] > 0 && A[i] < A.length && A[i] != A[A[i] - 1]) {
-                //swap here:
-                int swap = A[A[i] - 1];
-                A[A[i] - 1] = A[i];
-                A[i] = swap;
-            } else {
-                i++;
-            }
+            if (A[i] != i + 1 && A[i] > 0 && A[i] < A.length && A[i] != A[A[i] - 1]) swap(A, A[i]-1, i);
+            else i++;
         }
 
-        i = 0;
-        while (i < A.length && A[i] == i + 1) i++;
-        return i + 1;
+        for (i=0; i<A.length && A[i] == i+1; i++);
+        return i+1;
     }
 
+    private static void swap(int[] A, int a, int b){
+        int temp = A[a];
+        A[a] = A[b];
+        A[b] = temp;
+    }
 }
