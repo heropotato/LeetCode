@@ -37,25 +37,27 @@ public class combinationSum2 {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // Simiplar to the solution of "combinationSum"
+        // Only difference is that when doing "try", each position on num[] count only once
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         Arrays.sort(num);
-        if (num.length == 0 || target < num[0]) return res;
-        combinationSum2(num, target, 0, new ArrayList<Integer>(), res);
+        combinationSum2(num, target, new ArrayList<Integer>(), res, 0);
         return res;
     }
 
-    public void combinationSum2(int[] num, int target, int startIndex, ArrayList<Integer> combination, ArrayList<ArrayList<Integer>> res) {
-        if (target == 0) {
-            ArrayList<Integer> current = new ArrayList<Integer>(combination);
-            if (!res.contains(current)) res.add(current);
+    private void combinationSum2(int[] num, int target, ArrayList<Integer> solution, ArrayList<ArrayList<Integer>> res, int pos){
+        if (target == 0){
+            ArrayList<Integer> completeSolution = new ArrayList<Integer>(solution);
+            if (!res.contains(completeSolution)) res.add(completeSolution);
             return;
         }
 
-        for (int i = startIndex; i < num.length; i++) {
-            if (num[i] > target) return;
-            combination.add(num[i]);
-            combinationSum2(num, target - num[i], i + 1, combination, res);
-            combination.remove(combination.size() - 1);
+        for (int i = pos; i<num.length; i++){
+            if (num[i] <=target){
+                solution.add(num[i]);
+                combinationSum2(num, target-num[i], solution, res, i+1);
+                solution.remove(solution.size()-1);
+            }
         }
     }
 }
