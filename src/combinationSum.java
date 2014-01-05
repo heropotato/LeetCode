@@ -34,25 +34,26 @@ public class combinationSum {
         // Start typing your Java solution below
         // DO NOT write main() function
 
+        // A back-trace solution
+        //
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         Arrays.sort(candidates);
-        if (candidates.length == 0 || target < candidates[0]) return res;
         combinationSum(candidates, target, new ArrayList<Integer>(), res, 0);
         return res;
     }
 
-    public void combinationSum(int[] candidates, int target, ArrayList<Integer> combination, ArrayList<ArrayList<Integer>> res, int start) {
+    private void combinationSum(int[] candidates, int target, ArrayList<Integer> solution, ArrayList<ArrayList<Integer>> res, int pos) {
         if (target == 0) {
-            ArrayList<Integer> t = new ArrayList<Integer>(combination);
-            if (!res.contains(t)) res.add(t);
+            ArrayList<Integer> completeSolution = new ArrayList<Integer>(solution);
+            if (!res.contains(completeSolution)) res.add(completeSolution);
             return;
         }
 
-        for (int i = start; i < candidates.length; i++) {
+        for (int i = pos; i < candidates.length; i++) {
             if (candidates[i] <= target) {
-                combination.add(candidates[i]);
-                combinationSum(candidates, target - candidates[i], combination, res, i);
-                combination.remove(combination.size() - 1);
+                solution.add(candidates[i]);
+                combinationSum(candidates, target - candidates[i], solution, res, i);
+                solution.remove(solution.size() - 1);
             }
         }
     }
