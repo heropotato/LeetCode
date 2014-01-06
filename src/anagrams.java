@@ -44,10 +44,7 @@ public class anagrams {
             }
         }
 
-        for (String sorted:map.keySet()){
-            if (map.get(sorted).size()>1) res.addAll(map.get(sorted));
-        }
-
+        for (String sorted:map.keySet()) if (map.get(sorted).size()>1) res.addAll(map.get(sorted));
         return res;
     }
 
