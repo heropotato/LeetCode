@@ -24,6 +24,10 @@ public class anagrams {
     public ArrayList<String> anagrams(String[] strs) {
         // Start typing your Java solution below
         // DO NOT write main() function
+
+        // What is Anagrams? If two strings have exactly same frequency of word appearances
+        // Tricky: if two strings are anagrams, then they have the same sorted char[] result
+        // Use HashMap<String, ArrayList<String>> to track all anagrams
         ArrayList<String> res = new ArrayList<String>();
         HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 
