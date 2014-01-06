@@ -21,28 +21,19 @@ public class trap {
     public int trap(int[] A) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        if (A.length < 3) return 0;
-        int[] leftMax = new int[A.length], rightMax = new int[A.length];
 
-        int i = 0;
-        while (i < A.length) {
-            leftMax[i] = i == 0 ? A[i] : Math.max(leftMax[i - 1], A[i]);
-            i++;
-        }
-
-        i = A.length - 1;
-        while (i >= 0) {
-            rightMax[i] = i == A.length - 1 ? A[A.length - 1] : Math.max(A[i], rightMax[i + 1]);
-            i--;
-        }
-
+        // Iterate the array from left to right, find out highest bar on the left side of each position i
+        // then, vice versa, iterate from right to left
+        // then, accumulate how much water can be trapped at each position i
+        int[] lMax = new int[A.length], rMax = new int[A.length];
         int res = 0;
-        i = 1;
-        while (i < A.length - 1) {
-            res += Math.min(leftMax[i], rightMax[i]) - A[i];
-            i++;
+        for (int i = A.length-1; i>=0; i--){
+            rMax[i] = i == A.length-1?A[i]:Math.max(A[i], rMax[i+1]);
+        }
+        for (int i = 0; i < A.length; i++){
+            lMax[i] = i == 0?A[i]:Math.max(A[i], lMax[i-1]);
+            res += Math.min(lMax[i], rMax[i]) - A[i];
         }
         return res;
     }
-
 }
